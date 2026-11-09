@@ -1,5 +1,7 @@
 # PORTAFOLIO
 
+**Sitio en vivo:** [portafolio-seven-ruby-81.vercel.app](https://portafolio-seven-ruby-81.vercel.app)
+
 Portafolio personal de ingeniería de sistemas. Sitio estático construido con **Angular 22**, tipografía editorial, tema claro/oscuro y fichas de proyecto documentadas.
 
 > Sistema de diseño: papel cálido, tinta profunda, una sola retícula técnica y un acento óxido. Sin gradientes, sin tarjetas flotantes, sin plantillas genéricas.
