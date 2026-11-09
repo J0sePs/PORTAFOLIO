@@ -1,0 +1,123 @@
+.head {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.head__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.head__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding-top: clamp(1.75rem, 4vw, 3.25rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.head__title {
+  font-size: var(--t-2xl);
+  max-width: 14ch;
+}
+
+.head__aside {
+  padding-bottom: 0.25rem;
+  max-width: 44ch;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
+  margin-top: 1.75rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.filters__btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-block: 0.2rem;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.filters__btn:hover {
+  color: var(--ink);
+}
+
+.filters__btn.is-active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+.filters__count {
+  font-size: 8px;
+  color: var(--muted);
+}
+
+.archive {
+  padding-bottom: var(--section);
+}
+
+.archive__list {
+  border-top: 1px solid var(--line);
+}
+
+.archive__empty {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 62ch;
+  padding: clamp(2rem, 4vw, 3rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+.archive__empty-title {
+  font-size: var(--t-xl);
+  max-width: 20ch;
+}
+
+.archive__empty .btn {
+  justify-self: start;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 1000px) {
+  .head__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .head__title {
+    max-width: 18ch;
+  }
+
+  .head__aside {
+    max-width: 58ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .head__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .filters {
+    gap: 0.35rem 0.9rem;
+  }
+}

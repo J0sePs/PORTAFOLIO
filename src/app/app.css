@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+main {
+  display: block;
+  min-height: 60vh;
+}
+
+main:focus {
+  outline: none;
+}

@@ -1,0 +1,234 @@
+.head {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+.head__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.head__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  align-items: end;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  padding-top: clamp(1.75rem, 4vw, 3.25rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.head__title {
+  font-size: var(--t-3xl);
+  line-height: 0.9;
+}
+
+.head__aside {
+  max-width: 44ch;
+  padding-bottom: 0.4rem;
+}
+
+.head__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line-2);
+  flex: none;
+}
+
+.dot.is-on {
+  background: #2f8f4e;
+  box-shadow: 0 0 0 3px color-mix(in srgb, #2f8f4e 16%, transparent);
+}
+
+/* ---------- correo ---------- */
+
+.mail-block {
+  border-top: 1px solid var(--line);
+  padding-block: clamp(2rem, 4vw, 3rem);
+}
+
+.mail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line-2);
+}
+
+.mail__link {
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 5.2vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  transition: color 0.25s;
+}
+
+.mail__link:hover {
+  color: var(--accent);
+}
+
+.mail__copy {
+  flex: none;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--line-2);
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  transition:
+    background-color 0.25s,
+    border-color 0.25s,
+    color 0.25s;
+}
+
+.mail__copy:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+/* ---------- detalles ---------- */
+
+.details {
+  padding-bottom: var(--section);
+}
+
+.details__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 6vw, 6rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+.reasons {
+  margin-top: 1rem;
+}
+
+.reasons li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.reasons__num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  padding-top: 0.2rem;
+}
+
+.channels {
+  margin-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.channels a {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr) 1rem;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.25s;
+}
+
+.channels a:hover {
+  color: var(--accent);
+}
+
+.channels__label {
+  font-size: 0.9375rem;
+}
+
+.channels__handle {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-align: right;
+}
+
+.channels app-arrow {
+  color: var(--muted);
+  transition: transform 0.3s var(--ease);
+}
+
+.channels a:hover app-arrow {
+  transform: translate(2px, -2px);
+  color: var(--accent);
+}
+
+.place {
+  margin-top: 2rem;
+}
+
+.place p:not(.eyebrow) {
+  margin-top: 0.6rem;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+
+.place__zone {
+  font-family: var(--mono);
+  font-size: 9px !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted) !important;
+}
+
+@media (max-width: 1000px) {
+  .head__grid,
+  .details__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .head__aside {
+    max-width: 56ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .head__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .mail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .channels a {
+    grid-template-columns: 5.5rem minmax(0, 1fr) 1rem;
+  }
+}

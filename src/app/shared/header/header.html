@@ -1,0 +1,68 @@
+<header
+  class="header"
+  [class.is-scrolled]="scrolled()"
+  [class.is-hidden]="hidden()"
+  [class.is-open]="menuOpen()"
+>
+  <div class="header__inner shell">
+    <a class="brand" routerLink="/" (click)="closeMenu()" aria-label="Ir al inicio">
+      <span class="brand__mark" aria-hidden="true">{{ profile.initials }}</span>
+      <span class="brand__text">
+        <span class="brand__name">{{ profile.name }}</span>
+        <span class="brand__role">{{ profile.role }}</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Navegación principal">
+      @for (item of nav; track item.path) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="is-active"
+          #link="routerLinkActive"
+          [attr.aria-current]="link.isActive ? 'page' : null"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <app-theme-toggle />
+      <button
+        type="button"
+        class="menu-btn"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="menu-movil"
+        [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+      >
+        <span class="menu-btn__lines" [class.is-x]="menuOpen()" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+@if (menuOpen()) {
+  <div class="menu" id="menu-movil" role="dialog" aria-modal="true" aria-label="Menú">
+    <nav class="menu__nav" aria-label="Navegación móvil">
+      @for (item of nav; track item.path; let i = $index) {
+        <a [routerLink]="item.path" class="menu__link" [style.--i]="i" (click)="closeMenu()">
+          <span class="menu__index">0{{ i + 1 }}</span>
+          <span>{{ item.label }}</span>
+          <app-arrow direction="up-right" />
+        </a>
+      }
+    </nav>
+
+    <div class="menu__foot">
+      <a class="menu__mail" [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      <div class="menu__meta">
+        <span>{{ profile.location }}</span>
+        <span>{{ profile.availabilityLabel }}</span>
+      </div>
+    </div>
+  </div>
+}

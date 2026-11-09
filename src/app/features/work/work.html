@@ -1,0 +1,61 @@
+<section class="head">
+  <div class="shell">
+    <div class="head__meta">
+      <span class="eyebrow">Archivo — {{ profile.name }}</span>
+      <span class="eyebrow">{{ total }} {{ total === 1 ? 'sistema' : 'sistemas' }}</span>
+    </div>
+
+    <div class="head__grid">
+      <h1 class="head__title display">Proyectos <em>documentados</em>.</h1>
+
+      <div class="head__aside">
+        <p class="lede">
+          Cada ficha reúne el problema, la arquitectura, las tecnologías y el resultado. Sin
+          capturas decorativas: lo que se construyó y por qué.
+        </p>
+
+        @if (total > 1) {
+          <nav class="filters" aria-label="Filtrar proyectos por tipo">
+            @for (filter of filters; track filter.value) {
+              <button
+                type="button"
+                class="filters__btn"
+                [class.is-active]="active() === filter.value"
+                [attr.aria-pressed]="active() === filter.value"
+                (click)="setFilter(filter.value)"
+              >
+                {{ filter.label }}
+                <span class="filters__count">{{ filter.count }}</span>
+              </button>
+            }
+          </nav>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="archive">
+  <div class="shell">
+    @if (visible().length) {
+      <div class="archive__list">
+        @for (project of visible(); track project.slug; let i = $index) {
+          <app-project-row [project]="project" [index]="indexLabel(i)" />
+        }
+      </div>
+    } @else {
+      <div class="archive__empty" appReveal>
+        <p class="eyebrow">Archivo en preparación</p>
+        <p class="archive__empty-title display">Los sistemas se están documentando.</p>
+        <p class="lede">
+          Estoy preparando cada ficha con capturas, arquitectura y resultados. Si quieres ver algo
+          en concreto, escríbeme y te lo muestro directamente.
+        </p>
+        <a class="btn" routerLink="/contacto">
+          Escribirme
+          <app-arrow />
+        </a>
+      </div>
+    }
+  </div>
+</section>

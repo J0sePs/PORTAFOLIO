@@ -1,0 +1,70 @@
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__cta">
+      <p class="eyebrow">Siguiente paso</p>
+      <h2 class="footer__title display">¿Tienes un <em>sistema</em> en mente?</h2>
+      <a class="footer__mail" [href]="'mailto:' + profile.email">
+        <span>{{ profile.email }}</span>
+        <app-arrow direction="up-right" />
+      </a>
+    </div>
+
+    <div class="footer__grid">
+      <div class="footer__col">
+        <p class="eyebrow">Navegación</p>
+        <ul>
+          @for (item of nav; track item.path) {
+            <li>
+              <a [routerLink]="item.path">{{ item.label }}</a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <p class="eyebrow">Redes</p>
+        <ul>
+          @for (social of profile.socials; track social.href) {
+            <li>
+              <a [href]="social.href" target="_blank" rel="noopener noreferrer">
+                {{ social.label }}
+                <span class="footer__handle">{{ social.handle }}</span>
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <p class="eyebrow">Estudio</p>
+        <ul>
+          <li>{{ profile.location }}</li>
+          <li>
+            <span
+              class="footer__status"
+              [class.is-on]="profile.available"
+              aria-hidden="true"
+            ></span>
+            {{ profile.availabilityLabel }}
+          </li>
+          <li class="footer__muted">{{ profile.focus }}</li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <p class="eyebrow">Hora local</p>
+        <p class="footer__clock">{{ clock() }}</p>
+        <p class="footer__muted">UTC −05:00 · {{ profile.timezone }}</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© {{ year }} {{ profile.name }}</span>
+      <span class="footer__note">Diseñado y construido en Angular · Desplegado en Vercel</span>
+      <button type="button" class="footer__top" (click)="toTop()">
+        Volver arriba
+        <app-arrow direction="down" />
+      </button>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,114 @@
+<section class="head">
+  <div class="shell">
+    <div class="head__meta">
+      <span class="eyebrow">Perfil — {{ profile.name }}</span>
+      <span class="eyebrow">{{ profile.location }}</span>
+    </div>
+
+    <div class="head__grid">
+      <h1 class="head__title display">Ingeniería de sistemas, <em>aplicada</em>.</h1>
+      <p class="head__lede lede">
+        Trabajo donde se cruzan la infraestructura y el software. Me formo en ingeniería de sistemas
+        y uso cada proyecto para entender cómo se sostiene un sistema completo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="shell intro__grid">
+    <aside class="ficha">
+      <p class="eyebrow">Ficha</p>
+      <dl>
+        @for (item of ficha; track item.label) {
+          <div>
+            <dt>{{ item.label }}</dt>
+            <dd>{{ item.value }}</dd>
+          </div>
+        }
+      </dl>
+      <a class="btn ficha__btn" routerLink="/contacto">
+        Contacto
+        <app-arrow />
+      </a>
+    </aside>
+
+    <div class="bio" appReveal>
+      <p class="lede">
+        No me interesa entregar una demo que solo funciona en mi máquina. Me interesa que el sistema
+        siga en pie cuando cambia el tráfico, cuando falla un nodo o cuando otra persona tiene que
+        mantenerlo.
+      </p>
+      <p class="prose">
+        Por eso trabajo con una idea simple: cada capa debe poder explicarse. La red, los servicios,
+        la base de datos y el despliegue tienen una razón de ser, y esa razón queda escrita. Un
+        proyecto bien entregado se puede leer, probar y operar sin depender de quien lo construyó.
+      </p>
+      <p class="prose">
+        Cuando no estoy construyendo, estoy documentando lo que aprendí o probando herramientas
+        nuevas sobre un laboratorio propio. Prefiero entender un sistema por dentro antes de
+        recomendarlo.
+      </p>
+
+      <div class="bio__actions">
+        <a class="link" routerLink="/proyectos">
+          Ver proyectos
+          <app-arrow />
+        </a>
+        <a class="link" [href]="'mailto:' + profile.email">
+          {{ profile.email }}
+          <app-arrow direction="up-right" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="principles">
+  <div class="shell">
+    <header class="principles__head" appReveal>
+      <p class="eyebrow">Método</p>
+      <h2 class="principles__title display">Cuatro reglas de trabajo</h2>
+    </header>
+
+    <div class="principles__grid">
+      @for (principle of principles; track principle.title; let i = $index) {
+        <article class="principle" [appReveal]="i * 60">
+          <span class="principle__num">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <h3>{{ principle.title }}</h3>
+          <p>{{ principle.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="stack">
+  <div class="shell">
+    <header class="stack__head" appReveal>
+      <div>
+        <p class="eyebrow">Herramientas</p>
+        <h2 class="stack__title display">Con qué trabajo</h2>
+      </div>
+      <p class="stack__note lede">
+        Las elijo según el problema; no todas entran en todos los proyectos.
+      </p>
+    </header>
+
+    <div class="stack__grid">
+      @for (group of stackGroups; track group.kind; let i = $index) {
+        <div class="stack__group" [appReveal]="i * 40">
+          <h3 class="eyebrow">{{ group.kind }}</h3>
+          <ul>
+            @for (id of group.items; track id) {
+              <li>
+                <app-tech-icon [tech]="id" />
+                <span>{{ techName(id) }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
