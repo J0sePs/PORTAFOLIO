@@ -56,6 +56,7 @@ const ICONS = [
   'cloudflare',
   'cisco',
   'wireshark',
+  'youtube',
   'tensorflow',
   'pytorch',
   'huggingface',
@@ -109,6 +110,11 @@ const FALLBACKS = [
   {
     id: 'openai',
     url: 'https://cdn.jsdelivr.net/npm/simple-icons@14/icons/openai.svg',
+    viewBox: '0 0 24 24',
+  },
+  {
+    id: 'linkedin',
+    url: 'https://cdn.jsdelivr.net/npm/simple-icons@13/icons/linkedin.svg',
     viewBox: '0 0 24 24',
   },
   {

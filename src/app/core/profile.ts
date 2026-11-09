@@ -6,17 +6,18 @@
  */
 export const PROFILE = {
   /** Nombre o marca. Aparece en el logo, el pie y los metadatos. */
-  name: 'TU NOMBRE',
+  name: 'JOSE PIZARRO',
   /** Dos iniciales para el monograma de la cabecera. */
-  initials: 'TN',
+  initials: 'JP',
   /** Especialidad o cargo. */
   role: 'Ingeniería de Sistemas',
   /** Línea corta que aparece en la cabecera y el pie. */
   focus: 'Infraestructura · Software · Cloud',
   location: 'Tingo María, Perú',
   timezone: 'America/Lima',
-  email: 'hola@tudominio.com',
-  phone: '+51 000 000 000',
+  /** Correo electrónico. */
+  email: '123fernando159@gmail.com',
+  phone: '+51 969 456 449',
   /** Mientras esté en true se muestra el punto verde de disponibilidad. */
   available: true,
   availabilityLabel: 'Disponible para proyectos',
@@ -26,9 +27,19 @@ export const PROFILE = {
   startYear: 2023,
 
   socials: [
-    { label: 'GitHub', handle: '@tu-usuario', href: 'https://github.com/tu-usuario' },
-    { label: 'LinkedIn', handle: '/in/tu-usuario', href: 'https://www.linkedin.com/in/tu-usuario' },
-    { label: 'Instagram', handle: '@tu-usuario', href: 'https://instagram.com/tu-usuario' },
+    { label: 'GitHub', icon: 'github', handle: '@J0sePs', href: 'https://github.com/J0sePs' },
+    {
+      label: 'LinkedIn',
+      icon: 'linkedin',
+      handle: 'in/jose-fernando-pizarro-salome-249547434',
+      href: 'https://www.linkedin.com/in/jose-fernando-pizarro-salome-249547434/',
+    },
+    {
+      label: 'YouTube',
+      icon: 'youtube',
+      handle: '@PrimeNote365',
+      href: 'https://www.youtube.com/@PrimeNote365',
+    },
   ],
 } as const;
 

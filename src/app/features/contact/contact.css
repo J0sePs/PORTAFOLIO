@@ -164,15 +164,31 @@
 }
 
 .channels__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-size: 0.9375rem;
+}
+
+.channels__label app-social-icon {
+  font-size: 15px;
+  color: var(--muted);
+  transition: color 0.25s;
+}
+
+.channels a:hover .channels__label app-social-icon {
+  color: var(--accent);
 }
 
 .channels__handle {
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   color: var(--muted);
   text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .channels app-arrow {

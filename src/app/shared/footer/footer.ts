@@ -3,10 +3,11 @@ import { RouterLink } from '@angular/router';
 
 import { PROFILE } from '../../core/profile';
 import { Arrow } from '../arrow/arrow';
+import { SocialIcon } from '../social-icon/social-icon';
 
 @Component({
   selector: 'app-footer',
-  imports: [RouterLink, Arrow],
+  imports: [RouterLink, Arrow, SocialIcon],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })

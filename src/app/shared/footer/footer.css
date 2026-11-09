@@ -75,8 +75,21 @@
 
 .footer__col a {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  row-gap: 0.1rem;
+  max-width: 100%;
+}
+
+.footer__col a app-social-icon {
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.footer__col a:hover app-social-icon {
+  color: var(--accent);
 }
 
 .footer__col a:hover {
@@ -85,9 +98,11 @@
 
 .footer__handle {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 9.5px;
   color: var(--muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .footer__status {

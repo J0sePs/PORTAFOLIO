@@ -4,10 +4,11 @@ import { PROFILE } from '../../core/profile';
 import { SeoService } from '../../core/seo.service';
 import { Arrow } from '../../shared/arrow/arrow';
 import { RevealDirective } from '../../shared/reveal.directive';
+import { SocialIcon } from '../../shared/social-icon/social-icon';
 
 @Component({
   selector: 'app-contact',
-  imports: [Arrow, RevealDirective],
+  imports: [Arrow, RevealDirective, SocialIcon],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })

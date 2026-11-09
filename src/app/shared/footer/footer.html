@@ -27,6 +27,7 @@
           @for (social of profile.socials; track social.href) {
             <li>
               <a [href]="social.href" target="_blank" rel="noopener noreferrer">
+                <app-social-icon [network]="social.icon" />
                 {{ social.label }}
                 <span class="footer__handle">{{ social.handle }}</span>
               </a>
