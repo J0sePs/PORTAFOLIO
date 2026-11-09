@@ -27,7 +27,7 @@ export class ProjectDetail {
 
   private readonly slug = toSignal(
     this.route.paramMap.pipe(map((params) => params.get('slug') ?? '')),
-    { initialValue: '' },
+    { initialValue: this.route.snapshot.paramMap.get('slug') ?? '' },
   );
 
   protected readonly project = computed(() => projectBySlug(this.slug()));
