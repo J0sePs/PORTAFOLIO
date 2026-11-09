@@ -21,7 +21,7 @@ export const PROFILE = {
   available: true,
   availabilityLabel: 'Disponible para proyectos',
   /** Dominio final. Se usa para canonical, Open Graph y sitemap. */
-  siteUrl: 'https://tu-portafolio.vercel.app',
+  siteUrl: 'https://portafolio-seven-ruby-81.vercel.app',
   /** Año que aparece en el pie. */
   startYear: 2023,
 

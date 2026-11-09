@@ -1,5 +1,5 @@
-# tu-portafolio.vercel.app
+# portafolio-seven-ruby-81.vercel.app
 User-agent: *
 Allow: /
 
-Sitemap: https://tu-portafolio.vercel.app/sitemap.xml
+Sitemap: https://portafolio-seven-ruby-81.vercel.app/sitemap.xml
