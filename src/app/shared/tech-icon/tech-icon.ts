@@ -1,6 +1,7 @@
 import { Component, computed, input } from '@angular/core';
 
 import { techInfo } from '../../data/tech';
+import { spriteHref } from '../sprite';
 
 @Component({
   selector: 'app-tech-icon',
@@ -32,6 +33,6 @@ import { techInfo } from '../../data/tech';
 export class TechIcon {
   readonly tech = input.required<string>();
 
-  protected readonly href = computed(() => `/icons/tech-sprite.svg#tech-${this.tech()}`);
+  protected readonly href = computed(() => spriteHref(this.tech()));
   protected readonly label = computed(() => techInfo(this.tech()).name);
 }

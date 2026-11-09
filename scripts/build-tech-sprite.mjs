@@ -7,6 +7,9 @@
  * - Elimina colores propios para que hereden `currentColor`
  * - Escribe public/icons/tech-sprite.svg
  *
+ * Al agregar iconos, sube SPRITE_VERSION en src/app/shared/sprite.ts
+ * para invalidar la caché de los navegadores.
+ *
  * Los iconos son marcas registradas de sus respectivos dueños y se usan
  * únicamente para identificar las tecnologías empleadas en cada proyecto.
  */

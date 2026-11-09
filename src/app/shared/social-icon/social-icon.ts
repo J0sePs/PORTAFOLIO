@@ -1,5 +1,7 @@
 import { Component, computed, input } from '@angular/core';
 
+import { spriteHref } from '../sprite';
+
 /**
  * Icono de red social. Reutiliza el sprite de `/icons/tech-sprite.svg`
  * (GitHub, LinkedIn y YouTube están incluidos).
@@ -34,5 +36,5 @@ import { Component, computed, input } from '@angular/core';
 export class SocialIcon {
   readonly network = input.required<string>();
 
-  protected readonly href = computed(() => `/icons/tech-sprite.svg#tech-${this.network()}`);
+  protected readonly href = computed(() => spriteHref(this.network()));
 }
