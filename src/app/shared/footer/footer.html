@@ -7,6 +7,10 @@
         <span>{{ profile.email }}</span>
         <app-arrow direction="up-right" />
       </a>
+      <a class="footer__form" routerLink="/contacto" fragment="formulario">
+        O usa el formulario de contacto
+        <app-arrow />
+      </a>
     </div>
 
     <div class="footer__grid">
@@ -48,6 +52,7 @@
             ></span>
             {{ profile.availabilityLabel }}
           </li>
+          <li class="footer__muted">{{ profile.university }}</li>
           <li class="footer__muted">{{ profile.focus }}</li>
         </ul>
       </div>

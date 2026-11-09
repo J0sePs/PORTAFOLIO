@@ -54,6 +54,29 @@
   transform: translate(0.15em, -0.5em);
 }
 
+.footer__form {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--line-2);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition:
+    color 0.25s,
+    border-color 0.25s;
+}
+
+.footer__form:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 /* ---------- columnas ---------- */
 
 .footer__grid {

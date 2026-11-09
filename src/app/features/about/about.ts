@@ -20,6 +20,7 @@ export class About {
   protected readonly ficha = [
     { label: 'Nombre', value: PROFILE.name },
     { label: 'Rol', value: PROFILE.role },
+    { label: 'Universidad', value: PROFILE.university },
     { label: 'Base', value: PROFILE.location },
     { label: 'Enfoque', value: PROFILE.focus },
     { label: 'Estado', value: PROFILE.availabilityLabel },
@@ -102,6 +103,7 @@ export class About {
           email: PROFILE.email,
           url: `${PROFILE.siteUrl}/estudio`,
           address: { '@type': 'PostalAddress', addressLocality: PROFILE.location },
+          alumniOf: { '@type': 'CollegeOrUniversity', name: PROFILE.university },
         },
       },
     });

@@ -53,7 +53,8 @@ $brushAccent = New-Object System.Drawing.SolidBrush $accent
 $brushGreen = New-Object System.Drawing.SolidBrush ([System.Drawing.ColorTranslator]::FromHtml('#2F8F4E'))
 
 # Encabezado
-$g.DrawString('PORTAFOLIO / INGENIERÍA DE SISTEMAS', $mono, $brushMuted, 80, 60)
+$role = (Get-ProfileValue 'role' 'Ingeniería de Sistemas').ToUpper()
+$g.DrawString("PORTAFOLIO / $role", $mono, $brushMuted, 80, 60)
 
 # Marca
 $g.FillRectangle($brushAccent, 80, 150, 34, 5)

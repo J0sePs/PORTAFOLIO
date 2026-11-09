@@ -88,6 +88,14 @@ Fuentes self-hosted en `public/fonts` (subset latin):
 
 Se descargan con `npm run fonts` y se declaran con `@font-face` en `src/styles.css`.
 
+### 6. Formulario de contacto
+
+El formulario de `/contacto` envía por POST a **FormSubmit**, sin backend ni variables de entorno. Usa el correo definido en `profile.ts`.
+
+La primera vez, FormSubmit manda un correo de activación a esa dirección: hay que abrir el enlace **Activate Form** una sola vez. Hasta entonces, el formulario muestra un error y ofrece el enlace `mailto:` como respaldo.
+
+Si cambias de proveedor (Formspree, Resend, etc.), el único punto a tocar es `submit()` en `src/app/features/contact/contact.ts`.
+
 ---
 
 ## Estructura

@@ -89,6 +89,7 @@ export class Home {
         url: PROFILE.siteUrl,
         email: PROFILE.email,
         address: { '@type': 'PostalAddress', addressLocality: PROFILE.location },
+        alumniOf: { '@type': 'CollegeOrUniversity', name: PROFILE.university },
         sameAs: PROFILE.socials.map((social) => social.href),
         knowsAbout: this.areas.map((area) => area.label),
       },

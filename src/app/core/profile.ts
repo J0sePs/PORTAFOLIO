@@ -10,7 +10,11 @@ export const PROFILE = {
   /** Dos iniciales para el monograma de la cabecera. */
   initials: 'JP',
   /** Especialidad o cargo. */
-  role: 'Ingeniería de Sistemas',
+  role: 'Ingeniería en Informática y Sistemas',
+  /** Universidad donde se forma. */
+  university: 'Universidad Nacional Agraria de la Selva (UNAS)',
+  /** Siglas para espacios cortos. */
+  universityShort: 'UNAS',
   /** Línea corta que aparece en la cabecera y el pie. */
   focus: 'Infraestructura · Software · Cloud',
   location: 'Tingo María, Perú',

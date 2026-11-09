@@ -33,6 +33,112 @@
   </div>
 </section>
 
+<section class="form-section" id="formulario">
+  <div class="shell form__grid">
+    <div class="form__intro" appReveal>
+      <p class="eyebrow">Formulario</p>
+      <h2 class="form__title display">Cuéntame del <em>sistema</em>.</h2>
+      <p class="lede">
+        Qué necesitas, para cuándo y con qué restricciones. Con eso puedo responderte con algo
+        concreto.
+      </p>
+      <p class="form__direct">
+        ¿Prefieres el correo directo?
+        <a class="link" [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      </p>
+    </div>
+
+    @if (status() === 'sent') {
+      <div class="form__done" role="status">
+        <p class="eyebrow">Mensaje enviado</p>
+        <p class="form__done-title display">Gracias, {{ lastSender() }}.</p>
+        <p class="prose">Recibí tu mensaje. Te responderé al correo que dejaste.</p>
+        <button type="button" class="link" (click)="resetForm()">
+          Enviar otro mensaje
+          <app-arrow />
+        </button>
+      </div>
+    } @else {
+      <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form__row">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input
+              id="nombre"
+              type="text"
+              formControlName="name"
+              autocomplete="name"
+              placeholder="Tu nombre"
+              [attr.aria-invalid]="showError('name')"
+            />
+            @if (showError('name')) {
+              <p class="field__error">Escribe tu nombre.</p>
+            }
+          </div>
+
+          <div class="field">
+            <label for="correo">Correo</label>
+            <input
+              id="correo"
+              type="email"
+              formControlName="email"
+              autocomplete="email"
+              placeholder="tu@correo.com"
+              [attr.aria-invalid]="showError('email')"
+            />
+            @if (showError('email')) {
+              <p class="field__error">Ingresa un correo válido.</p>
+            }
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea
+            id="mensaje"
+            rows="5"
+            formControlName="message"
+            placeholder="Qué sistema necesitas, para cuándo y qué restricciones hay."
+            [attr.aria-invalid]="showError('message')"
+          ></textarea>
+          @if (showError('message')) {
+            <p class="field__error">Cuéntame un poco más (mínimo 10 caracteres).</p>
+          }
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="empresa">Empresa</label>
+          <input
+            id="empresa"
+            type="text"
+            formControlName="company"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        @if (status() === 'error') {
+          <div class="form__error" role="alert">
+            <p>No se pudo enviar el mensaje. Intenta de nuevo o escríbeme directo.</p>
+            <a class="link" [href]="mailtoHref()">
+              Enviar por correo
+              <app-arrow direction="up-right" />
+            </a>
+          </div>
+        }
+
+        <div class="form__actions">
+          <button class="btn btn--solid" type="submit" [disabled]="status() === 'sending'">
+            {{ status() === 'sending' ? 'Enviando' : 'Enviar mensaje' }}
+            <app-arrow />
+          </button>
+          <p class="form__note">Tus datos solo se usan para responderte. Sin listas ni spam.</p>
+        </div>
+      </form>
+    }
+  </div>
+</section>
+
 <section class="details">
   <div class="shell details__grid">
     <div class="details__col">
