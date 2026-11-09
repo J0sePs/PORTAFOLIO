@@ -39,6 +39,7 @@ export const TECH: Record<string, Tech> = {
   django: { name: 'Django', kind: 'framework' },
   laravel: { name: 'Laravel', kind: 'framework' },
   express: { name: 'Express', kind: 'framework' },
+  astro: { name: 'Astro', kind: 'framework' },
   fastapi: { name: 'FastAPI', kind: 'framework' },
   dotnet: { name: '.NET', kind: 'framework' },
   sass: { name: 'Sass', kind: 'framework' },

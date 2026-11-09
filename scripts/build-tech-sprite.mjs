@@ -34,6 +34,7 @@ const ICONS = [
   'django',
   'laravel',
   'express',
+  'astro',
   'fastapi',
   'mysql',
   'postgresql',

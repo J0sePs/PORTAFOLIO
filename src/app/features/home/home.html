@@ -42,99 +42,52 @@
   </div>
 </section>
 
-@if (featured; as project) {
-  <section class="featured">
-    <div class="shell">
-      <div class="featured__head">
-        <p class="eyebrow">{{ nums.featured }} — Destacado</p>
-        <p class="eyebrow">{{ project.year }}</p>
-      </div>
-
-      <a
-        class="featured__media"
-        [routerLink]="['/proyectos', project.slug]"
-        [attr.aria-label]="'Ver el proyecto ' + project.title"
-      >
-        <app-project-media
-          [src]="project.cover"
-          [alt]="project.coverAlt ?? project.title"
-          index="01"
-          [title]="project.title"
-          [year]="project.year"
-          ratio="16 / 9"
-          [eager]="true"
-        />
-      </a>
-
-      <div class="featured__caption">
-        <div class="featured__lead">
-          <h2 class="display">
-            <a [routerLink]="['/proyectos', project.slug]">{{ project.title }}</a>
-          </h2>
-          <p class="lede">{{ project.subtitle }}</p>
-          <a class="link" [routerLink]="['/proyectos', project.slug]">
-            Ver el caso completo
-            <app-arrow />
-          </a>
-        </div>
-
-        <div class="featured__side">
-          <p class="eyebrow">Tecnologías</p>
-          <ul class="featured__tags">
-            @for (tech of project.stack; track tech) {
-              <li class="tag">
-                <app-tech-icon [tech]="tech" />
-                {{ techName(tech) }}
-              </li>
-            }
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-}
-
-@if (showWork) {
+@if (projects.length) {
   <section class="work section">
     <div class="shell">
       <header class="work__head" appReveal>
         <div>
-          <p class="eyebrow">{{ nums.work }} — Archivo</p>
-          <h2 class="work__title display">{{ workTitle }}</h2>
+          <p class="eyebrow">{{ nums.projects }} — Proyectos</p>
+          <h2 class="work__title display">Trabajo <em>seleccionado</em>.</h2>
         </div>
 
-        @if (projects.length) {
-          <div class="work__meta">
-            <span class="work__count"
-              >{{ projects.length }} {{ projects.length === 1 ? 'sistema' : 'sistemas' }}</span
-            >
-            <a class="link" routerLink="/proyectos">
-              Ver el archivo
-              <app-arrow />
-            </a>
-          </div>
-        }
+        <div class="work__meta">
+          <span class="work__count">{{ total }} {{ total === 1 ? 'sistema' : 'sistemas' }}</span>
+          <a class="link" routerLink="/proyectos">
+            Ver el archivo
+            <app-arrow />
+          </a>
+        </div>
       </header>
 
-      @if (rest.length) {
-        <div class="work__list">
-          @for (project of rest; track project.slug; let i = $index) {
-            <app-project-row [project]="project" [index]="indexLabel(i + (featured ? 1 : 0))" />
-          }
+      <div class="work__grid">
+        @for (project of projects; track project.slug; let i = $index) {
+          <app-project-card [project]="project" [index]="indexLabel(i)" />
+        }
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="work section">
+    <div class="shell">
+      <header class="work__head" appReveal>
+        <div>
+          <p class="eyebrow">Archivo</p>
+          <h2 class="work__title display">Los sistemas se están documentando.</h2>
         </div>
-      } @else if (!projects.length) {
-        <div class="work__empty" appReveal>
-          <p class="work__empty-label">Archivo en preparación</p>
-          <p class="work__empty-text">
-            Estoy documentando los últimos sistemas con capturas, arquitectura y resultados.
-            Mientras tanto, puedes revisar el perfil o escribirme directamente.
-          </p>
-          <div class="work__empty-links">
-            <a class="link" routerLink="/estudio">Ver el perfil <app-arrow /></a>
-            <a class="link" routerLink="/contacto">Escribirme <app-arrow /></a>
-          </div>
+      </header>
+
+      <div class="work__empty" appReveal>
+        <p class="work__empty-label">Archivo en preparación</p>
+        <p class="work__empty-text">
+          Estoy documentando los últimos sistemas con capturas, arquitectura y resultados. Mientras
+          tanto, puedes revisar el perfil o escribirme directamente.
+        </p>
+        <div class="work__empty-links">
+          <a class="link" routerLink="/estudio">Ver el perfil <app-arrow /></a>
+          <a class="link" routerLink="/contacto">Escribirme <app-arrow /></a>
         </div>
-      }
+      </div>
     </div>
   </section>
 }

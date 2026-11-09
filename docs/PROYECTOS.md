@@ -98,7 +98,7 @@ Los demás son opcionales y su sección desaparece si no existen (`stages`, `met
 
 Deben existir en `src/app/data/tech.ts`. Ejemplos:
 
-`angular`, `typescript`, `javascript`, `python`, `java`, `php`, `csharp`, `nodedotjs`,
+`angular`, `astro`, `typescript`, `javascript`, `python`, `java`, `php`, `csharp`, `nodedotjs`,
 `mysql`, `postgresql`, `mongodb`, `redis`, `linux`, `ubuntu`, `docker`, `kubernetes`,
 `amazonwebservices`, `microsoftazure`, `googlecloud`, `nginx`, `git`, `github`, `cisco`,
 `wireshark`, `gnubash`, `powershell`, `tensorflow`, `pytorch`, `openai`, `figma`.

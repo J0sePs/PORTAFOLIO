@@ -3,18 +3,14 @@ import { RouterLink } from '@angular/router';
 
 import { PROFILE } from '../../core/profile';
 import { SeoService } from '../../core/seo.service';
-import { techInfo } from '../../data/tech';
-import { Project } from '../../data/project.model';
-import { PROJECTS, featuredProject } from '../../data/projects';
+import { PROJECTS } from '../../data/projects';
 import { Arrow } from '../../shared/arrow/arrow';
-import { ProjectMedia } from '../../shared/project-media/project-media';
-import { ProjectRow } from '../../shared/project-row/project-row';
+import { ProjectCard } from '../../shared/project-card/project-card';
 import { RevealDirective } from '../../shared/reveal.directive';
-import { TechIcon } from '../../shared/tech-icon/tech-icon';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, Arrow, ProjectMedia, ProjectRow, RevealDirective, TechIcon],
+  imports: [RouterLink, Arrow, ProjectCard, RevealDirective],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -22,22 +18,16 @@ export class Home {
   protected readonly profile = PROFILE;
   protected readonly year = new Date().getFullYear();
 
-  protected readonly featured: Project | undefined = featuredProject();
-  protected readonly projects = PROJECTS;
-  protected readonly rest = PROJECTS.filter((project) => project.slug !== this.featured?.slug);
-
-  /** Con un solo sistema no hay archivo: la portada ya lo muestra. */
-  protected readonly showFeatured = PROJECTS.length > 0;
-  protected readonly showWork = PROJECTS.length !== 1;
-  protected readonly workTitle = PROJECTS.length ? 'Trabajo seleccionado' : 'Archivo';
+  /** En la portada se muestran como máximo cuatro fichas; el archivo tiene el resto. */
+  protected readonly projects = PROJECTS.slice(0, 4);
+  protected readonly total = PROJECTS.length;
 
   /** Numeración consecutiva de las secciones que realmente se muestran. */
   protected readonly nums = (() => {
     let count = 0;
     const next = () => String(++count).padStart(2, '0');
     return {
-      featured: this.showFeatured ? next() : '',
-      work: this.showWork ? next() : '',
+      projects: this.total ? next() : '',
       method: next(),
       about: next(),
     };
@@ -94,10 +84,6 @@ export class Home {
         knowsAbout: this.areas.map((area) => area.label),
       },
     });
-  }
-
-  protected techName(id: string): string {
-    return techInfo(id).name;
   }
 
   protected indexLabel(index: number): string {
