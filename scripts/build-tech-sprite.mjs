@@ -36,6 +36,11 @@ const ICONS = [
   'express',
   'astro',
   'fastapi',
+  'jinja',
+  'geopandas',
+  'pytest',
+  'ruff',
+  'uv',
   'mysql',
   'postgresql',
   'mongodb',
@@ -145,6 +150,34 @@ const FALLBACKS = [
 
 const OUT = new URL('../public/icons/tech-sprite.svg', import.meta.url);
 
+// Tecnologías sin marca publicada en Simple Icons ni Devicon. Se dibujan
+// aquí, en el mismo trazo monocromo que el resto del sprite.
+const CUSTOM = [
+  {
+    id: 'xarray',
+    viewBox: '0 0 24 24',
+    inner: '<path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/>',
+  },
+  {
+    id: 'netcdf4',
+    viewBox: '0 0 24 24',
+    inner:
+      '<path d="M12 3C7.6 3 4 4.3 4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6c0-1.7-3.6-3-8-3zm6 15c0 .5-2.4 1.6-6 1.6S6 18.5 6 18v-2.2c1.6.9 3.9 1.3 6 1.3s4.4-.4 6-1.3V18zm0-5c0 .5-2.4 1.6-6 1.6S6 13.5 6 13v-2.2c1.6.9 3.9 1.3 6 1.3s4.4-.4 6-1.3V13zm-6-5.4c-3.6 0-6-1.1-6-1.6S8.4 4.4 12 4.4s6 1.1 6 1.6-2.4 1.6-6 1.6z"/>',
+  },
+  {
+    id: 'matplotlib',
+    viewBox: '0 0 24 24',
+    inner:
+      '<path d="M4 3h2v16h14v2H4V3zm4 11h2.2v4H8v-4zm3.6-5h2.2v9h-2.2V9zm3.6 3h2.2v6h-2.2v-6z"/>',
+  },
+  {
+    id: 'openspec',
+    viewBox: '0 0 24 24',
+    inner:
+      '<path d="M6 2h7l5 5v15H6V2zm2 2v14h8V8h-4V4H8zm1 10.4 2.1 2.1 4-4-1.2-1.2-2.8 2.8-.9-.9-1.2 1.2z"/>',
+  },
+];
+
 const symbols = [];
 const failed = [];
 
@@ -187,6 +220,11 @@ for (const item of FALLBACKS) {
     failed.push(item.id);
     console.warn(`--  ${item.id} (no disponible)`);
   }
+}
+
+for (const item of CUSTOM) {
+  symbols.push(`  <symbol id="tech-${item.id}" viewBox="${item.viewBox}">${item.inner}</symbol>`);
+  console.log(`ok  ${item.id} (local)`);
 }
 
 const sprite = `<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">

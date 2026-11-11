@@ -158,6 +158,130 @@ export const PROJECTS: Project[] = [
 
     updated: '2026-11-09',
   },
+  {
+    slug: 'pisco-rain-extractor',
+    title: 'PISCOp Rain Extractor',
+    subtitle: 'Extracción y análisis de lluvia diaria del dataset PISCOp v3.0 (SENAMHI, Perú).',
+    year: 2025,
+    kind: 'datos',
+    role: 'Arquitectura, desarrollo y validación',
+    scope: 'Datos geoespaciales, hidrología, backend y visualización de series',
+    status: 'Funcional, demo local',
+
+    cover: '/proyectos/pisco-rain-extractor/point-annual.webp',
+    coverAlt: 'Totales anuales y máximas de 24 h por año en gráficos de barras',
+
+    stack: [
+      'python',
+      'fastapi',
+      'jinja',
+      'xarray',
+      'netcdf4',
+      'geopandas',
+      'matplotlib',
+      'pandas',
+      'pytest',
+      'ruff',
+      'uv',
+      'openspec',
+    ],
+
+    summary:
+      'App web local que extrae la serie diaria de lluvia de un punto o de una cuenca completa a partir de los NetCDF de PISCOp v3.0, y la convierte en estadísticos, gráficos y archivos listos para R, Python o Excel.',
+
+    context:
+      'PISCOp v3.0 es el dataset grillado de precipitación diaria del SENAMHI (Perú, rejilla de 0.1°, 1981–2025). Consultarlo suele significar abrir NetCDF de varios GB con scripts sueltos.\n\nLos archivos son propiedad del SENAMHI y no se redistribuyen, así que la app no tiene demo pública: corre en local, sobre una copia propia del dataset.',
+
+    challenge:
+      'Había que resolver tres cosas a la vez: elegir la celda correcta para un punto, promediar una cuenca sin contar celdas que no corresponden y no cargar la rejilla diaria completa en memoria. Todo sin JavaScript ni CDN, y con resultados de punto que se puedan marcar y compartir.',
+
+    solution:
+      'La app convierte el dataset en un flujo de tres pasos: eliges un punto (WGS84 o UTM 17/18/19) o subes una cuenca (GeoJSON o Shapefile comprimido hasta 10 MB), defines el rango de años y obtienes una página de análisis con resumen, tabla diaria paginada, totales y máximas de 24 h por año, climatología mensual con desviación estándar, mapas y descargas en CSV y Excel.\n\nLas rutas FastAPI quedan delgadas, los servicios no conocen FastAPI y un único repositorio abre los NetCDF. Los resultados de punto son URLs sin estado; los de cuenca viven 24 h en un almacén temporal. El desarrollo siguió OpenSpec (propuesta, specs, diseño y tareas por cambio) y Architecture Decision Records para cada decisión estructural.',
+
+    stages: [
+      {
+        title: 'Rutas FastAPI',
+        detail: 'Formularios, validación de entrada y páginas de resultado, sin lógica de datos.',
+      },
+      {
+        title: 'Servicios',
+        detail:
+          'Selección de la celda más cercana, media areal, regla de completitud del 95 %, estadísticos y gráficos.',
+      },
+      {
+        title: 'Repositorio NetCDF',
+        detail:
+          'Un único punto de acceso a los archivos: lectura perezosa y por bloques, sin cargar la rejilla completa.',
+      },
+      {
+        title: 'Plantillas Jinja2',
+        detail: 'HTML renderizado en servidor y CSS plano, sin JavaScript ni CDN.',
+      },
+      {
+        title: 'Pruebas y calidad',
+        detail: 'Suite de pytest sobre NetCDF sintéticos y ruff en CI local.',
+      },
+    ],
+
+    metrics: [
+      { value: '1981–2025', label: 'años de serie diaria' },
+      { value: '287 MB', label: 'pico de memoria en una cuenca de 50×50 celdas' },
+      { value: '0.001 mm', label: 'tolerancia frente a valores de referencia' },
+    ],
+
+    gallery: [
+      {
+        src: '/proyectos/pisco-rain-extractor/home.webp',
+        alt: 'Pantalla de inicio con acceso a extracción por punto y por cuenca',
+        caption: 'Inicio: extracción por punto o por cuenca',
+      },
+      {
+        src: '/proyectos/pisco-rain-extractor/dataset.webp',
+        alt: 'Catálogo que verifica los archivos PISCOp disponibles y su estructura',
+        caption: 'Catálogo de archivos PISCOp verificados',
+      },
+      {
+        src: '/proyectos/pisco-rain-extractor/point-form.webp',
+        alt: 'Formulario de punto con entrada WGS84 y conversión desde UTM',
+        caption: 'Punto por coordenadas o por UTM',
+      },
+      {
+        src: '/proyectos/pisco-rain-extractor/point-summary.webp',
+        alt: 'Resumen de la serie diaria de un punto con mapa de ubicación',
+        caption: 'Resumen de la serie diaria de un punto',
+      },
+      {
+        src: '/proyectos/pisco-rain-extractor/point-annual.webp',
+        alt: 'Totales y máximas de 24 h por año con gráfico',
+        caption: 'Totales y máximas de 24 h por año',
+      },
+      {
+        src: '/proyectos/pisco-rain-extractor/basin-form.webp',
+        alt: 'Formulario para subir una cuenca en GeoJSON o Shapefile',
+        caption: 'Cuenca por GeoJSON o Shapefile comprimido',
+      },
+      {
+        src: '/proyectos/pisco-rain-extractor/basin-cells.webp',
+        alt: 'Mapa de la cuenca y de las celdas PISCOp usadas en el promedio areal',
+        caption: 'Celdas usadas en el promedio areal',
+      },
+      {
+        src: '/proyectos/pisco-rain-extractor/basin-summary.webp',
+        alt: 'Resumen de la serie areal diaria de una cuenca de 2 332.9 km²',
+        caption: 'Resumen de la serie areal de la cuenca',
+      },
+    ],
+
+    links: [
+      {
+        label: 'Repositorio',
+        href: 'https://github.com/J0sePs/pisco-rain-extractor',
+        kind: 'repo',
+      },
+    ],
+
+    updated: '2026-11-11',
+  },
 ];
 
 /** Proyecto de portada: el destacado o, en su defecto, el primero. */

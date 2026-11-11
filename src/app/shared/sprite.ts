@@ -5,7 +5,7 @@
  * `npm run icons`, sube `SPRITE_VERSION`. Eso cambia la URL y evita
  * que los navegadores sigan usando una copia antigua en caché.
  */
-export const SPRITE_VERSION = '2';
+export const SPRITE_VERSION = '3';
 
 export const SPRITE_URL = `/icons/tech-sprite.svg?v=${SPRITE_VERSION}`;
 
