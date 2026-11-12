@@ -254,6 +254,90 @@ export const PROJECTS: Project[] = [
 
     updated: '2026-11-11',
   },
+  {
+    slug: 'hotel-mirador',
+    title: 'Hotel Mirador del Pacífico — PMS + Web de reservas',
+    subtitle: 'Sistema hotelero para el mercado peruano: web de reservas y panel de administración.',
+    year: 2026,
+    kind: 'desarrollo',
+    status: 'Demo funcional',
+
+    cover: '/proyectos/hotel-mirador/cover.jpg',
+    coverAlt: 'Hotel Mirador del Pacífico: buscador de disponibilidad y tarjetas de habitación en la web pública',
+
+    stack: ['angular', 'primeng', 'typescript', 'chartjs', 'vercel'],
+
+    summary:
+      'Aplicación hotelera que une la web pública del hotel con un panel de administración PMS para el personal. El huésped busca disponibilidad, reserva por pasos y paga con Yape. El equipo gestiona el rack de habitaciones, reservas, recepción check-in y check-out, huéspedes, housekeeping, caja, reportes, habitaciones, tarifas, usuarios y configuración. Los datos son simulados y están listos para conectar a una API real.',
+
+    problem:
+      'El hotel necesita recibir reservas online y gestionar la operación diaria asignar habitaciones, check-in y check-out, limpieza, pagos y reportes, pero no cuenta con un sistema integrado. El personal coordina todo a mano y el huésped no puede reservar desde la web.',
+
+    solution:
+      'Se construyó una sola aplicación Angular con PrimeNG que combina la web pública del hotel buscador de disponibilidad, flujo de reserva por pasos y pago con Yape con un panel PMS para recepción, housekeeping, caja y administración. Los datos se generan simulados alrededor de la fecha actual y se guardan en localStorage, por lo que el rack y el dashboard siempre muestran movimiento. Al conectar una API real solo se reemplazan los servicios mock.',
+
+    highlights: [
+      'Reserva por pasos con código de confirmación HMP-AAAA-NNNN',
+      'Panel PMS: rack, recepción, housekeeping, caja y reportes',
+      'Datos simulados listos para conectar a un backend real',
+    ],
+
+    metrics: [
+      { value: '5', label: 'tipos de habitación' },
+      { value: '30', label: 'habitaciones en 3 pisos' },
+      { value: '300', label: 'reservas sin solapamiento' },
+      { value: '18 %', label: 'IGV configurable' },
+    ],
+
+    gallery: [
+      {
+        src: '/proyectos/hotel-mirador/detalle-1.jpg',
+        alt: 'Flujo de reserva: paso dos, selección de habitación y tarifas del hotel',
+        caption: 'Paso 2 del flujo de reserva: elige habitación y tarifa',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/hotel-mirador/detalle-2.jpg',
+        alt: 'Confirmación de reserva con código HMP-AAAA-NNNN y resumen del pago',
+        caption: 'Confirmación con código de reserva',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/hotel-mirador/detalle-3.jpg',
+        alt: 'Rack de habitaciones del panel PMS con estados por piso y número de habitación',
+        caption: 'Rack de habitaciones del panel de administración',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/hotel-mirador/detalle-4.jpg',
+        alt: 'Registro de Huéspedes en recepción para el check-in de una llegada del día',
+        caption: 'Registro de Huéspedes check-in en recepción',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/hotel-mirador/detalle-5.jpg',
+        alt: 'Check-out con comprobante de pago y boleta impresa del huésped',
+        caption: 'Check-out con comprobante de pago',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/hotel-mirador/detalle-6.jpg',
+        alt: 'Housekeeping en celular: la habitación pasa de sucia a limpia tras la limpieza',
+        caption: 'Housekeeping en el celular',
+        ratio: '3 / 4',
+      },
+      {
+        src: '/proyectos/hotel-mirador/detalle-7.jpg',
+        alt: 'Reportes del hotel con gráficos de ocupación, ingresos y reservas por mes',
+        caption: 'Reportes con gráficos de ocupación e ingresos',
+        ratio: '16 / 9',
+      },
+    ],
+
+    links: [{ label: 'Ver sistema', href: 'https://hotel-mirador-del-pacifico.vercel.app/', kind: 'demo' }],
+
+    updated: '2026-11-12',
+  },
 ];
 
 /** Proyecto de portada: el destacado o, en su defecto, el primero. */

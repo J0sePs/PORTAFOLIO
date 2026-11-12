@@ -49,6 +49,7 @@ const ICONS = [
   'supabase',
   'firebase',
   'prisma',
+  'primeng',
   'linux',
   'ubuntu',
   'debian',
@@ -175,6 +176,12 @@ const CUSTOM = [
     viewBox: '0 0 24 24',
     inner:
       '<path d="M6 2h7l5 5v15H6V2zm2 2v14h8V8h-4V4H8zm1 10.4 2.1 2.1 4-4-1.2-1.2-2.8 2.8-.9-.9-1.2 1.2z"/>',
+  },
+  {
+    id: 'chartjs',
+    viewBox: '0 0 24 24',
+    inner:
+      '<path d="M2 19l3-7 3 3 3-8 3 6 3-4 3 5h2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
   },
 ];
 

@@ -35,6 +35,7 @@ export const TECH: Record<string, Tech> = {
   css: { name: 'CSS', kind: 'lenguaje' },
 
   angular: { name: 'Angular', kind: 'framework' },
+  primeng: { name: 'PrimeNG', kind: 'framework' },
   spring: { name: 'Spring', kind: 'framework' },
   django: { name: 'Django', kind: 'framework' },
   laravel: { name: 'Laravel', kind: 'framework' },
@@ -125,6 +126,7 @@ export const TECH: Record<string, Tech> = {
   raspberrypi: { name: 'Raspberry Pi', kind: 'hardware' },
   telegram: { name: 'Telegram', kind: 'herramienta' },
   whatsapp: { name: 'WhatsApp', kind: 'herramienta' },
+  chartjs: { name: 'Chart.js', kind: 'herramienta' },
 };
 
 export function techInfo(id: string): Tech {
