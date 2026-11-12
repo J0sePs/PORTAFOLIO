@@ -85,80 +85,74 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: 'milagritos-demo',
-    title: 'Milagritos — Pollería y Brostería',
-    subtitle: 'Carta digital con pedidos para una pollería de Castillo Grande.',
+    title: 'Milagrito — Pollería y Brostería',
+    subtitle: 'Carta digital, pedidos y reservas para una pollería de Tingo María.',
     year: 2026,
     kind: 'desarrollo',
-    status: 'Demo de diseño',
+    status: 'Demo funcional',
 
     cover: '/proyectos/milagritos-demo/cover.webp',
-    coverAlt: 'Portada de Milagritos con pollo a la brasa, precio del combo y botones de pedido',
+    coverAlt: 'Portada de Milagrito con el pollo a la brasa, el precio y el botón de pedido',
 
-    stack: ['html5', 'css', 'javascript', 'vercel'],
+    stack: ['angular', 'typescript', 'css', 'vercel'],
 
     summary:
-      'La carta digital de una pollería: el cliente ve los platos, arma su pedido, elige delivery o recojo y lo envía por WhatsApp con el detalle completo. Incluye un panel para revisar pedidos, clientes y ventas del día.',
+      'La web de una pollería: carta con precios y promociones, pedido que se arma y se envía por WhatsApp, reserva de mesas, horarios, zonas de delivery y libro de reclamaciones.',
 
     problem:
-      'Los pedidos llegaban por WhatsApp y teléfono, y cada consulta de precios, promociones o zonas de reparto se respondía a mano. En hora punta eso hacía perder tiempo y provocaba errores al anotar el pedido.',
+      'Los pedidos y las reservas llegaban por WhatsApp y teléfono. Cada consulta de precios, horarios o zonas de reparto se respondía a mano, y en hora punta se perdían mensajes o se anotaban mal los pedidos.',
 
     solution:
-      'Se armó una web pensada para el celular donde el cliente ve la carta actualizada, arma el pedido y lo envía listo por WhatsApp, sin repetir nada. La dueña entra a un panel simple para revisar pedidos, clientes y ventas. Es una demostración: los datos de prueba se guardan en el mismo navegador, sin depender de un servidor.',
+      'Se construyó una web pensada para el celular: el cliente elige sus platos, decide si quiere delivery o recojo y envía el pedido por WhatsApp con el detalle y el total. También reserva mesa con los horarios disponibles y revisa dirección, horarios, zonas de reparto y métodos de pago. La carta y los horarios se actualizan desde un solo lugar.',
 
     highlights: [
-      'Pedidos armados sin errores',
-      'Atención más rápida en hora punta',
-      'Panel de control para el negocio',
+      'Pedido con detalle y total en WhatsApp',
+      'Reservas sin llamadas ni idas y vueltas',
+      'Horarios y zonas de reparto siempre a la vista',
     ],
 
     metrics: [
-      { value: '8', label: 'platos en la carta' },
-      { value: '5', label: 'categorías de menú' },
-      { value: '4', label: 'zonas de delivery' },
+      { value: '9', label: 'platos en la carta' },
+      { value: '6', label: 'categorías del menú' },
+      { value: '5', label: 'zonas de delivery' },
     ],
 
     gallery: [
       {
         src: '/proyectos/milagritos-demo/detalle-1.webp',
-        alt: 'Carta de platos con filtros por categoría, precios y botones para agregar al pedido',
-        caption: 'Carta con filtros y precios en soles',
+        alt: 'Carta de Milagrito con buscador, filtros por categoría, precios en soles y botones para agregar al pedido',
+        caption: 'Carta con buscador, filtros y precios',
         ratio: '4 / 3',
       },
       {
         src: '/proyectos/milagritos-demo/detalle-2.webp',
-        alt: 'Bloque oscuro de combos familiares con el Combo Familiar y sus acompañamientos',
-        caption: 'Combos y promociones de la casa',
+        alt: 'Pedido abierto con siete platos, delivery gratis desbloqueado, subtotal y botón para enviar por WhatsApp',
+        caption: 'Pedido armado y enviado por WhatsApp',
         ratio: '4 / 3',
       },
       {
         src: '/proyectos/milagritos-demo/detalle-3.webp',
-        alt: 'Mapa de ubicación, horarios y zonas de delivery de Milagritos',
+        alt: 'Formulario de reserva con fecha, número de personas, horarios disponibles y motivo de la visita',
+        caption: 'Reserva de mesa con horarios disponibles',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/milagritos-demo/detalle-4.webp',
+        alt: 'Dirección, horario semanal, zonas de delivery y mapa de ubicación de Milagrito en Tingo María',
         caption: 'Ubicación, horarios y zonas de reparto',
         ratio: '4 / 3',
       },
       {
-        src: '/proyectos/milagritos-demo/cuenta.webp',
-        alt: 'Pantalla de inicio de sesión y creación de cuenta de Milagritos',
-        caption: 'Cuenta de cliente y acceso de administrador',
-        ratio: '4 / 3',
-      },
-      {
-        src: '/proyectos/milagritos-demo/panel.webp',
-        alt: 'Panel de administración con ventas del día, pedidos, clientes y gráficos',
-        caption: 'Panel del negocio: ventas y pedidos del día',
-        ratio: '4 / 3',
-      },
-      {
-        src: '/proyectos/milagritos-demo/clientes.webp',
-        alt: 'Lista de clientes registrados con sus permisos de contacto por WhatsApp y correo',
-        caption: 'Base de clientes y permisos de contacto',
+        src: '/proyectos/milagritos-demo/detalle-5.webp',
+        alt: 'Libro de reclamaciones con formulario de tres pasos y datos del proveedor',
+        caption: 'Libro de reclamaciones conforme a ley',
         ratio: '4 / 3',
       },
     ],
 
-    links: [{ label: 'Ver demo', href: 'https://milagritos-demo-mvp.vercel.app/', kind: 'demo' }],
+    links: [{ label: 'Ver sitio', href: 'https://milagritos-demo-mvp.vercel.app/', kind: 'demo' }],
 
-    updated: '2026-11-09',
+    updated: '2026-11-12',
   },
   {
     slug: 'pisco-rain-extractor',
