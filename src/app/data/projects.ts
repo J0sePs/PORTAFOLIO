@@ -13,6 +13,9 @@ import { Project } from './project.model';
  *
  *  El orden de la lista es el orden en que aparecen en la web.
  *  El primero con `featured: true` ocupa la portada.
+ *
+ *  La ficha se escribe para un cliente, no para otro programador:
+ *  qué hace la aplicación, qué problema resuelve y cómo se usa.
  */
 export const PROJECTS: Project[] = [
   {
@@ -21,8 +24,6 @@ export const PROJECTS: Project[] = [
     subtitle: 'Laboratorios de Linux y cloud que se ejecutan en el navegador.',
     year: 2026,
     kind: 'desarrollo',
-    role: 'Arquitectura, desarrollo y despliegue',
-    scope: 'Interfaz, API, base de datos y dominio en producción',
     status: 'En producción',
     featured: true,
 
@@ -32,36 +33,18 @@ export const PROJECTS: Project[] = [
     stack: ['astro', 'fastapi', 'python', 'postgresql'],
 
     summary:
-      'Una plataforma de laboratorios interactivos para aprender Linux y cloud escribiendo comandos reales en el navegador. El avance, los cursos y la validación quedan guardados en la base de datos.',
+      'Una plataforma para aprender Linux y cloud practicando con comandos reales en el navegador. El estudiante elige un laboratorio, escribe comandos y recibe al instante la corrección; su avance queda guardado en su cuenta.',
 
-    context:
-      'Quien empieza con Linux suele chocar con la misma barrera: instalar una máquina virtual, configurar la red y aprender a la par que pelea con el entorno.\n\nLa propuesta fue mover ese primer contacto al navegador. Un terminal simulado, laboratorios guiados y una cuenta que conserva el progreso entre sesiones.',
-
-    challenge:
-      'Había que validar comandos sin ejecutar un sistema real, mantener la sensación de una terminal y sostener el avance del estudiante en el tiempo. Todo desde el navegador y bajo un solo dominio en producción.',
+    problem:
+      'Empezar con Linux suele ser frustrante: antes de aprender hay que instalar una máquina virtual, configurar la red y resolver errores del entorno. Muchos estudiantes se quedan en ese primer paso. Del otro lado, el docente tiene que revisar a mano si cada ejercicio se hizo bien.',
 
     solution:
-      'Separé el sistema en dos capas: Astro entrega las páginas y el terminal; FastAPI expone autenticación, catálogo y progreso; PostgreSQL guarda usuarios, cursos y resultados. La validación compara el comando con patrones definidos por laboratorio, sin levantar una máquina virtual por estudiante.',
+      'La plataforma lleva ese primer contacto al navegador: no hay nada que instalar. El estudiante practica en un terminal que responde como uno real, recibe la corrección al instante y continúa donde se quedó desde cualquier equipo. Los laboratorios están ordenados por nivel y el plan gratuito abre los primeros.',
 
-    stages: [
-      {
-        title: 'Interfaz en Astro',
-        detail:
-          'Páginas pre-renderizadas y una isla para la terminal. El contenido carga sin esperar a la API.',
-      },
-      {
-        title: 'API en FastAPI',
-        detail:
-          'Autenticación, catálogo de laboratorios, validación de comandos y progreso del estudiante.',
-      },
-      {
-        title: 'PostgreSQL',
-        detail: 'Usuarios, cursos, intentos y resultados en un esquema relacional.',
-      },
-      {
-        title: 'Operación',
-        detail: 'Despliegue con dominio propio y acceso gratuito desde el primer día.',
-      },
+    highlights: [
+      'Practica sin instalar nada',
+      'Corrección automática al instante',
+      'El avance se guarda en la cuenta',
     ],
 
     metrics: [
@@ -73,12 +56,26 @@ export const PROJECTS: Project[] = [
       {
         src: '/proyectos/themodularlab/detalle-1.webp',
         alt: 'Tarjetas de características: terminal real, feedback instantáneo y progreso medible',
-        caption: 'Terminal, validación y progreso en una sola vista',
+        caption: 'Terminal, corrección y progreso en una sola vista',
+        ratio: '4 / 3',
       },
       {
         src: '/proyectos/themodularlab/detalle-2.webp',
         alt: 'Planes Gratis y Premium Pro con sus características y precios en soles',
         caption: 'Planes y acceso a los laboratorios',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/themodularlab/cuenta.webp',
+        alt: 'Pantalla de registro para crear una cuenta gratuita en The Modular Lab',
+        caption: 'Creación de cuenta en un solo paso',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/themodularlab/acceso.webp',
+        alt: 'Pantalla de inicio de sesión con correo y acceso con Google',
+        caption: 'Acceso con correo o con Google',
+        ratio: '4 / 3',
       },
     ],
 
@@ -92,8 +89,6 @@ export const PROJECTS: Project[] = [
     subtitle: 'Carta digital con pedidos para una pollería de Castillo Grande.',
     year: 2026,
     kind: 'desarrollo',
-    role: 'Diseño y desarrollo frontend',
-    scope: 'Identidad visual, maquetación y flujos de pedido simulados',
     status: 'Demo de diseño',
 
     cover: '/proyectos/milagritos-demo/cover.webp',
@@ -102,32 +97,18 @@ export const PROJECTS: Project[] = [
     stack: ['html5', 'css', 'javascript', 'vercel'],
 
     summary:
-      'Una carta digital con carrito, delivery y libro de reclamaciones para una pollería de Tingo María. Todo el estado del pedido vive en el navegador.',
+      'La carta digital de una pollería: el cliente ve los platos, arma su pedido, elige delivery o recojo y lo envía por WhatsApp con el detalle completo. Incluye un panel para revisar pedidos, clientes y ventas del día.',
 
-    context:
-      'El local ya tenía carta, promociones y clientes; le faltaba una presencia que resolviera el pedido sin depender de una app o de un backend propio.\n\nLa demo se construyó para validar la identidad visual y el flujo completo antes de invertir en integraciones reales.',
-
-    challenge:
-      'El sitio debía sentirse como una brasa, no como una plantilla: fotografía cálida, tipografía de cartel y contraste suficiente para leer precios al sol. Sin servidor, el carrito, los filtros y el cierre del pedido tenían que funcionar igual.',
+    problem:
+      'Los pedidos llegaban por WhatsApp y teléfono, y cada consulta de precios, promociones o zonas de reparto se respondía a mano. En hora punta eso hacía perder tiempo y provocaba errores al anotar el pedido.',
 
     solution:
-      'Maqueté el sitio en HTML, CSS y JavaScript puro. El carrito, los filtros de la carta y el libro de reclamaciones se resuelven en el cliente; el pedido se arma y se deriva a WhatsApp con el detalle completo. La estructura queda lista para conectar pagos o un panel real.',
+      'Se armó una web pensada para el celular donde el cliente ve la carta actualizada, arma el pedido y lo envía listo por WhatsApp, sin repetir nada. La dueña entra a un panel simple para revisar pedidos, clientes y ventas. Es una demostración: los datos de prueba se guardan en el mismo navegador, sin depender de un servidor.',
 
-    stages: [
-      {
-        title: 'Sistema visual',
-        detail:
-          'Paleta de brasa, tipografía editorial y bloques claros y oscuros para separar carta, promos y ubicación.',
-      },
-      {
-        title: 'Carta y carrito',
-        detail:
-          'Filtros por categoría, cantidades y resumen del pedido con estado en el navegador.',
-      },
-      {
-        title: 'Flujos de demo',
-        detail: 'Checkout por WhatsApp, acceso de administrador y libro de reclamaciones.',
-      },
+    highlights: [
+      'Pedidos armados sin errores',
+      'Atención más rápida en hora punta',
+      'Panel de control para el negocio',
     ],
 
     metrics: [
@@ -141,16 +122,37 @@ export const PROJECTS: Project[] = [
         src: '/proyectos/milagritos-demo/detalle-1.webp',
         alt: 'Carta de platos con filtros por categoría, precios y botones para agregar al pedido',
         caption: 'Carta con filtros y precios en soles',
+        ratio: '4 / 3',
       },
       {
         src: '/proyectos/milagritos-demo/detalle-2.webp',
         alt: 'Bloque oscuro de combos familiares con el Combo Familiar y sus acompañamientos',
         caption: 'Combos y promociones de la casa',
+        ratio: '4 / 3',
       },
       {
         src: '/proyectos/milagritos-demo/detalle-3.webp',
         alt: 'Mapa de ubicación, horarios y zonas de delivery de Milagritos',
         caption: 'Ubicación, horarios y zonas de reparto',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/milagritos-demo/cuenta.webp',
+        alt: 'Pantalla de inicio de sesión y creación de cuenta de Milagritos',
+        caption: 'Cuenta de cliente y acceso de administrador',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/milagritos-demo/panel.webp',
+        alt: 'Panel de administración con ventas del día, pedidos, clientes y gráficos',
+        caption: 'Panel del negocio: ventas y pedidos del día',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/milagritos-demo/clientes.webp',
+        alt: 'Lista de clientes registrados con sus permisos de contacto por WhatsApp y correo',
+        caption: 'Base de clientes y permisos de contacto',
+        ratio: '4 / 3',
       },
     ],
 
@@ -161,11 +163,9 @@ export const PROJECTS: Project[] = [
   {
     slug: 'pisco-rain-extractor',
     title: 'PISCOp Rain Extractor',
-    subtitle: 'Extracción y análisis de lluvia diaria del dataset PISCOp v3.0 (SENAMHI, Perú).',
+    subtitle: 'Extracción y análisis de lluvia diaria con los datos del SENAMHI.',
     year: 2025,
     kind: 'datos',
-    role: 'Arquitectura, desarrollo y validación',
-    scope: 'Datos geoespaciales, hidrología, backend y visualización de series',
     status: 'Funcional, demo local',
 
     cover: '/proyectos/pisco-rain-extractor/point-annual.webp',
@@ -187,40 +187,18 @@ export const PROJECTS: Project[] = [
     ],
 
     summary:
-      'App web local que extrae la serie diaria de lluvia de un punto o de una cuenca completa a partir de los NetCDF de PISCOp v3.0, y la convierte en estadísticos, gráficos y archivos listos para R, Python o Excel.',
+      'Una aplicación que extrae la lluvia diaria de un punto o de una cuenca completa a partir de los datos oficiales del SENAMHI. Entrega tablas, gráficos y archivos listos para Excel, R o Python.',
 
-    context:
-      'PISCOp v3.0 es el dataset grillado de precipitación diaria del SENAMHI (Perú, rejilla de 0.1°, 1981–2025). Consultarlo suele significar abrir NetCDF de varios GB con scripts sueltos.\n\nLos archivos son propiedad del SENAMHI y no se redistribuyen, así que la app no tiene demo pública: corre en local, sobre una copia propia del dataset.',
-
-    challenge:
-      'Había que resolver tres cosas a la vez: elegir la celda correcta para un punto, promediar una cuenca sin contar celdas que no corresponden y no cargar la rejilla diaria completa en memoria. Todo sin JavaScript ni CDN, y con resultados de punto que se puedan marcar y compartir.',
+    problem:
+      'Los datos de lluvia del SENAMHI vienen en archivos enormes que solo se abren con programas especializados. Sacar la serie de un punto o el promedio de una cuenca obligaba a escribir scripts nuevos cada vez, y era fácil equivocarse de celda o de periodo.',
 
     solution:
-      'La app convierte el dataset en un flujo de tres pasos: eliges un punto (WGS84 o UTM 17/18/19) o subes una cuenca (GeoJSON o Shapefile comprimido hasta 10 MB), defines el rango de años y obtienes una página de análisis con resumen, tabla diaria paginada, totales y máximas de 24 h por año, climatología mensual con desviación estándar, mapas y descargas en CSV y Excel.\n\nLas rutas FastAPI quedan delgadas, los servicios no conocen FastAPI y un único repositorio abre los NetCDF. Los resultados de punto son URLs sin estado; los de cuenca viven 24 h en un almacén temporal. El desarrollo siguió OpenSpec (propuesta, specs, diseño y tareas por cambio) y Architecture Decision Records para cada decisión estructural.',
+      'La aplicación convierte ese trabajo en tres pasos: elegir un punto en el mapa o subir el contorno de una cuenca, indicar los años y descargar el resultado. Entrega totales y máximas por año, promedios mensuales, mapas y archivos en CSV o Excel. Corre en la computadora del usuario porque los datos pertenecen al SENAMHI y no se pueden publicar.',
 
-    stages: [
-      {
-        title: 'Rutas FastAPI',
-        detail: 'Formularios, validación de entrada y páginas de resultado, sin lógica de datos.',
-      },
-      {
-        title: 'Servicios',
-        detail:
-          'Selección de la celda más cercana, media areal, regla de completitud del 95 %, estadísticos y gráficos.',
-      },
-      {
-        title: 'Repositorio NetCDF',
-        detail:
-          'Un único punto de acceso a los archivos: lectura perezosa y por bloques, sin cargar la rejilla completa.',
-      },
-      {
-        title: 'Plantillas Jinja2',
-        detail: 'HTML renderizado en servidor y CSS plano, sin JavaScript ni CDN.',
-      },
-      {
-        title: 'Pruebas y calidad',
-        detail: 'Suite de pytest sobre NetCDF sintéticos y ruff en CI local.',
-      },
+    highlights: [
+      'Sin escribir código',
+      'Resultados listos para Excel, R o Python',
+      'Análisis por punto o por cuenca',
     ],
 
     metrics: [
@@ -274,7 +252,7 @@ export const PROJECTS: Project[] = [
 
     links: [
       {
-        label: 'Repositorio',
+        label: 'Ver repositorio',
         href: 'https://github.com/J0sePs/pisco-rain-extractor',
         kind: 'repo',
       },

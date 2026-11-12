@@ -27,25 +27,6 @@ export class About {
     { label: 'Correo', value: PROFILE.email },
   ];
 
-  protected readonly principles = [
-    {
-      title: 'El problema antes que la tecnología',
-      text: 'Primero entiendo el contexto, los usuarios y las restricciones. La herramienta se elige después, por lo que resuelve.',
-    },
-    {
-      title: 'Decisiones documentadas',
-      text: 'Cada componente existe por una razón. La arquitectura se explica para que otro equipo pueda continuarla.',
-    },
-    {
-      title: 'Sistemas que se operan',
-      text: 'Un sistema no termina en la demo: necesita despliegue, monitoreo, respaldo y una forma clara de mantenerlo.',
-    },
-    {
-      title: 'Entregas verificables',
-      text: 'Trabajo por iteraciones cortas. Cada avance se puede probar, medir y corregir antes de seguir.',
-    },
-  ];
-
   protected readonly tools = [
     'angular',
     'typescript',
@@ -91,7 +72,7 @@ export class About {
     inject(SeoService).set({
       title: 'Estudio',
       description:
-        'Perfil profesional: formación en ingeniería de sistemas, enfoque de trabajo y herramientas para construir infraestructura, software y automatización.',
+        'Perfil profesional: formación en ingeniería de sistemas, enfoque de trabajo y herramientas para construir software, infraestructura y automatización.',
       path: '/estudio',
       jsonLd: {
         '@context': 'https://schema.org',

@@ -69,7 +69,7 @@ export class Home {
     inject(SeoService).set({
       title: '',
       description:
-        'Portafolio de ingeniería de sistemas: infraestructura, desarrollo de software, cloud y automatización. Cada proyecto documentado con su arquitectura y resultado.',
+        'Portafolio de ingeniería de sistemas: infraestructura, desarrollo de software, cloud y automatización. Cada proyecto con capturas reales y resultados.',
       path: '/',
       jsonLd: {
         '@context': 'https://schema.org',

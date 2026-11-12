@@ -69,6 +69,13 @@
   border-top: 1px solid var(--line);
 }
 
+.hero__lead {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.5rem;
+}
+
 .hero__status {
   display: inline-flex;
   align-items: center;

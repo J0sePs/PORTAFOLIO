@@ -44,7 +44,7 @@ export class Work {
     inject(SeoService).set({
       title: 'Proyectos',
       description:
-        'Archivo de sistemas construidos: desarrollo de software, infraestructura, redes, cloud y automatización. Cada proyecto con su arquitectura, tecnologías y resultado.',
+        'Archivo de sistemas construidos: desarrollo de software, infraestructura, redes, cloud y automatización. Cada proyecto con capturas, tecnologías y resultados.',
       path: '/proyectos',
     });
   }

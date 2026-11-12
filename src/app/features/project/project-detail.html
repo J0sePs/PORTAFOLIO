@@ -7,179 +7,202 @@
             <app-arrow direction="left" />
             Proyectos
           </a>
-          <span class="eyebrow">{{ kindLabel() }} — {{ project.year }}</span>
+          <span class="eyebrow">{{ kindLabel() }} · {{ project.year }}</span>
         </div>
 
-        <div class="head__grid">
-          <h1 class="head__title display">{{ project.title }}</h1>
-          <p class="head__subtitle">{{ project.subtitle }}</p>
-        </div>
+        <h1 class="head__title display">{{ project.title }}</h1>
+        <p class="head__subtitle">{{ project.subtitle }}</p>
 
-        <dl class="head__meta">
-          <div>
-            <dt>Año</dt>
-            <dd>{{ project.year }}</dd>
+        @if (primaryLink(); as link) {
+          <div class="head__actions">
+            <a class="live" [href]="link.href" target="_blank" rel="noopener noreferrer">
+              <span class="live__icon" aria-hidden="true">
+                <app-arrow direction="up-right" />
+              </span>
+              <span class="live__text">
+                <span class="live__label">{{ link.label }}</span>
+                <span class="live__url">{{ linkHost(link.href) }}</span>
+              </span>
+            </a>
+
+            @for (other of otherLinks(); track other.href) {
+              <a
+                class="btn head__secondary"
+                [href]="other.href"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ other.label }}
+                <app-arrow direction="up-right" />
+              </a>
+            }
           </div>
-          <div>
-            <dt>Rol</dt>
-            <dd>{{ project.role }}</dd>
-          </div>
-          <div>
-            <dt>Alcance</dt>
-            <dd>{{ project.scope }}</dd>
-          </div>
-          <div>
-            <dt>Estado</dt>
-            <dd>{{ project.status }}</dd>
-          </div>
-        </dl>
+        } @else {
+          <p class="head__status">
+            <span class="dot is-on" aria-hidden="true"></span>
+            {{ project.status }}
+          </p>
+        }
       </div>
     </header>
 
     <figure class="cover">
       <div class="shell">
-        <app-project-media
-          [src]="project.cover"
-          [alt]="project.coverAlt ?? project.title"
-          index="01"
-          [title]="project.title"
-          [year]="project.year"
-          ratio="16 / 9"
-          [eager]="true"
-        />
-        <figcaption class="cover__caption">
-          <span>Fig. 01 — Vista principal</span>
-          <span>{{ project.coverAlt ?? project.title }}</span>
-        </figcaption>
+        <div class="cover__media">
+          <app-project-media
+            [src]="project.cover"
+            [alt]="project.coverAlt ?? project.title"
+            index="01"
+            [title]="project.title"
+            [year]="project.year"
+            ratio="16 / 9"
+            [eager]="true"
+          />
+          <button
+            type="button"
+            class="gallery__zoom cover__zoom"
+            (click)="openCover()"
+            aria-label="Ampliar imagen principal del proyecto"
+          >
+            <span>Ampliar</span>
+          </button>
+        </div>
       </div>
     </figure>
 
+    <section class="overview shell" aria-labelledby="overview-title">
+      <h2 class="sr-only" id="overview-title">Resumen del proyecto</h2>
+
+      <div class="overview__grid">
+        <div class="overview__block" appReveal>
+          <p class="eyebrow">Qué hace</p>
+          <p class="overview__lead">{{ project.summary }}</p>
+        </div>
+
+        <div class="overview__block" appReveal>
+          <p class="eyebrow">Qué problema resuelve</p>
+          <p class="overview__text">{{ project.problem }}</p>
+        </div>
+      </div>
+    </section>
+
+    @if (project.gallery?.length) {
+      <section class="gallery-section" aria-labelledby="gallery-title">
+        <div class="shell">
+          <header class="section-head" appReveal>
+            <p class="eyebrow" id="gallery-title">El sistema por dentro</p>
+            <span class="eyebrow">{{ project.gallery!.length + 1 }} capturas</span>
+          </header>
+
+          <div class="gallery">
+            @for (item of project.gallery; track item.src; let i = $index) {
+              <figure class="gallery__item" [appReveal]="i * 50">
+                <app-project-media
+                  [src]="item.src"
+                  [alt]="item.alt"
+                  index="0{{ i + 2 }}"
+                  [title]="project.title"
+                  [year]="project.year"
+                  [ratio]="item.ratio ?? '16 / 9'"
+                />
+                <button
+                  type="button"
+                  class="gallery__zoom"
+                  (click)="openZoom(item)"
+                  [attr.aria-label]="'Ampliar imagen: ' + item.alt"
+                >
+                  <span>Ampliar</span>
+                </button>
+                <figcaption>
+                  <span>{{ item.caption ?? item.alt }}</span>
+                </figcaption>
+              </figure>
+            }
+          </div>
+        </div>
+      </section>
+    }
+
+    <section class="solution" aria-labelledby="solution-title">
+      <div class="shell solution__grid">
+        <header appReveal>
+          <p class="eyebrow" id="solution-title">Cómo lo resuelve</p>
+        </header>
+
+        <div class="solution__body" appReveal>
+          <p class="solution__text">{{ project.solution }}</p>
+
+          @if (project.highlights?.length) {
+            <ul class="highlights">
+              @for (item of project.highlights; track item; let i = $index) {
+                <li>
+                  <span class="highlights__num">{{ (i + 1).toString().padStart(2, '0') }}</span>
+                  <span>{{ item }}</span>
+                </li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+    </section>
+
+    @if (project.metrics?.length) {
+      <section class="results" aria-labelledby="results-title">
+        <div class="shell">
+          <header class="section-head" appReveal>
+            <p class="eyebrow" id="results-title">Resultados</p>
+          </header>
+
+          <ul class="metrics">
+            @for (metric of project.metrics; track metric.label) {
+              <li>
+                <span class="metrics__value">{{ metric.value }}</span>
+                <span class="metrics__label">{{ metric.label }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </section>
+    }
+
     <section class="tech" aria-labelledby="tech-title">
       <div class="shell">
-        <header class="tech__head">
-          <h2 class="eyebrow" id="tech-title">Tecnologías</h2>
-          <span class="eyebrow">{{ project.stack.length }} componentes</span>
+        <header class="section-head">
+          <p class="eyebrow" id="tech-title">Tecnologías</p>
+          <span class="eyebrow">Con qué está construido</span>
         </header>
 
         <ul class="tech__grid">
           @for (tech of project.stack; track tech) {
             <li class="tech__item">
               <app-tech-icon [tech]="tech" />
-              <span class="tech__label">
-                <span class="tech__name">{{ techName(tech) }}</span>
-                <span class="tech__kind">{{ techKind(tech) }}</span>
-              </span>
+              <span class="tech__name">{{ techName(tech) }}</span>
             </li>
           }
         </ul>
       </div>
     </section>
 
-    <div class="body shell">
-      <aside class="index">
-        <p class="eyebrow">Índice</p>
-
-        <nav aria-label="Secciones del proyecto">
-          <a href="#contexto"><span>01</span> Contexto</a>
-          <a href="#reto"><span>02</span> El reto</a>
-          <a href="#solucion"><span>03</span> La solución</a>
-          @if (project.stages?.length) {
-            <a href="#arquitectura"><span>04</span> Arquitectura</a>
-          }
-          @if (project.metrics?.length) {
-            <a href="#resultados"><span>05</span> Resultados</a>
-          }
-          @if (project.gallery?.length) {
-            <a href="#galeria"><span>06</span> Galería</a>
-          }
-        </nav>
-
-        @if (project.links?.length) {
-          <div class="index__links">
-            <p class="eyebrow">Enlaces</p>
-            @for (link of project.links; track link.href) {
-              <a [href]="link.href" target="_blank" rel="noopener noreferrer">
-                {{ link.label }}
-                <app-arrow direction="up-right" />
-              </a>
-            }
+    @if (primaryLink(); as link) {
+      <section class="cta">
+        <div class="shell cta__inner">
+          <div>
+            <p class="eyebrow">Probar el proyecto</p>
+            <p class="cta__title display">{{ project.title }}</p>
           </div>
-        }
-      </aside>
 
-      <div class="content">
-        <section id="contexto" class="block" appReveal>
-          <p class="eyebrow">01 — Contexto</p>
-          <p class="block__lead">{{ project.summary }}</p>
-          <p class="block__text">{{ project.context }}</p>
-        </section>
-
-        <section id="reto" class="block" appReveal>
-          <p class="eyebrow">02 — El reto</p>
-          <p class="block__text">{{ project.challenge }}</p>
-        </section>
-
-        <section id="solucion" class="block" appReveal>
-          <p class="eyebrow">03 — La solución</p>
-          <p class="block__text">{{ project.solution }}</p>
-        </section>
-
-        @if (project.stages?.length) {
-          <section id="arquitectura" class="block" appReveal>
-            <p class="eyebrow">04 — Arquitectura</p>
-            <ol class="stages">
-              @for (stage of project.stages; track stage.title; let i = $index) {
-                <li>
-                  <span class="stages__num">{{ (i + 1).toString().padStart(2, '0') }}</span>
-                  <div>
-                    <h3>{{ stage.title }}</h3>
-                    <p>{{ stage.detail }}</p>
-                  </div>
-                </li>
-              }
-            </ol>
-          </section>
-        }
-
-        @if (project.metrics?.length) {
-          <section id="resultados" class="block" appReveal>
-            <p class="eyebrow">05 — Resultados</p>
-            <ul class="metrics">
-              @for (metric of project.metrics; track metric.label) {
-                <li>
-                  <span class="metrics__value">{{ metric.value }}</span>
-                  <span class="metrics__label">{{ metric.label }}</span>
-                </li>
-              }
-            </ul>
-          </section>
-        }
-
-        @if (project.gallery?.length) {
-          <section id="galeria" class="block" appReveal>
-            <p class="eyebrow">06 — Galería</p>
-            <div class="gallery">
-              @for (item of project.gallery; track item.src; let i = $index) {
-                <figure class="gallery__item">
-                  <app-project-media
-                    [src]="item.src"
-                    [alt]="item.alt"
-                    index="0{{ i + 2 }}"
-                    [title]="project.title"
-                    [year]="project.year"
-                    ratio="4 / 3"
-                  />
-                  <figcaption>
-                    <span>Fig. 0{{ i + 2 }}</span>
-                    <span>{{ item.caption ?? item.alt }}</span>
-                  </figcaption>
-                </figure>
-              }
-            </div>
-          </section>
-        }
-      </div>
-    </div>
+          <a class="live live--cta" [href]="link.href" target="_blank" rel="noopener noreferrer">
+            <span class="live__icon" aria-hidden="true">
+              <app-arrow direction="up-right" />
+            </span>
+            <span class="live__text">
+              <span class="live__label">{{ link.label }}</span>
+              <span class="live__url">{{ linkHost(link.href) }}</span>
+            </span>
+          </a>
+        </div>
+      </section>
+    }
 
     <section class="next-band">
       <div class="shell">
@@ -203,5 +226,15 @@
         }
       </div>
     </section>
+
+    @if (zoomed(); as item) {
+      <div class="lightbox" role="dialog" aria-modal="true" (click)="closeZoom()">
+        <button type="button" class="lightbox__close" (click)="closeZoom()">Cerrar</button>
+        <figure class="lightbox__figure" (click)="$event.stopPropagation()">
+          <img [src]="item.src" [alt]="item.alt" />
+          <figcaption>{{ item.caption ?? item.alt }}</figcaption>
+        </figure>
+      </div>
+    }
   </article>
 }

@@ -59,7 +59,7 @@ import { TechIcon } from '../tech-icon/tech-icon';
           </div>
 
           <span class="card__cta">
-            Ver caso
+            Ver ficha
             <app-arrow />
           </span>
         </div>
@@ -199,21 +199,31 @@ import { TechIcon } from '../tech-icon/tech-icon';
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
+        padding: 0.5rem 0.7rem;
+        border: 1px solid var(--line-2);
+        border-radius: 2px;
         font-family: var(--mono);
         font-size: 9px;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--ink-2);
         white-space: nowrap;
-        transition: color 0.25s;
+        transition:
+          border-color 0.25s,
+          background-color 0.25s,
+          color 0.25s;
       }
+
+      /* El enlace de la ficha ocupa toda la tarjeta: el botón resalta la acción. */
 
       .card__cta app-arrow {
         transition: transform 0.35s var(--ease);
       }
 
       .card:hover .card__cta {
-        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent);
+        color: var(--on-accent);
       }
 
       .card:hover .card__cta app-arrow {

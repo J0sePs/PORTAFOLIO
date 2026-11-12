@@ -11,7 +11,7 @@
       <div class="hero__aside">
         <p class="lede">
           Diseño, construyo y opero sistemas completos: infraestructura, software y automatización.
-          Cada proyecto se documenta con su arquitectura, sus decisiones y su resultado.
+          Cada proyecto se presenta con capturas reales, lo que hace y el resultado.
         </p>
 
         <ul class="areas">
@@ -27,15 +27,17 @@
     </div>
 
     <div class="hero__foot">
-      <a class="btn btn--solid" routerLink="/proyectos">
-        Ver proyectos
-        <app-arrow />
-      </a>
+      <div class="hero__lead">
+        <a class="btn btn--solid" routerLink="/proyectos">
+          Ver proyectos
+          <app-arrow />
+        </a>
 
-      <p class="hero__status">
-        <span class="dot" [class.is-on]="profile.available" aria-hidden="true"></span>
-        {{ profile.availabilityLabel }}
-      </p>
+        <p class="hero__status">
+          <span class="dot" [class.is-on]="profile.available" aria-hidden="true"></span>
+          {{ profile.availabilityLabel }}
+        </p>
+      </div>
 
       <span class="hero__scroll">Desplázate para explorar</span>
     </div>
@@ -125,9 +127,8 @@
         cuando el proyecto deja de ser una demo.
       </p>
       <p class="prose">
-        Documento cada sistema como lo haría un equipo de ingeniería: con el problema, las
-        decisiones técnicas y el resultado. No colecciono tecnologías; las elijo por lo que
-        resuelven.
+        Documento cada sistema como lo haría un equipo de ingeniería: con el problema, la solución y
+        el resultado. No colecciono tecnologías; las elijo por lo que resuelven.
       </p>
 
       <a class="link about__link" routerLink="/estudio">

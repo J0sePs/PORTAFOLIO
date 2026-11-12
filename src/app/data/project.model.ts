@@ -10,11 +10,8 @@ export interface ProjectGalleryItem {
   src: string;
   alt: string;
   caption?: string;
-}
-
-export interface ProjectStage {
-  title: string;
-  detail: string;
+  /** Proporción de la captura. Por defecto 16:9. */
+  ratio?: string;
 }
 
 export interface ProjectMetric {
@@ -30,9 +27,6 @@ export interface Project {
   subtitle: string;
   year: number;
   kind: ProjectKind;
-  role: string;
-  /** Alcance: qué partes del sistema construiste. */
-  scope: string;
   /** Estado real del sistema. */
   status: string;
   /** El proyecto que se muestra primero en la portada. */
@@ -42,13 +36,14 @@ export interface Project {
   coverAlt?: string;
   /** Tecnologías y lenguajes, en orden de importancia. */
   stack: string[];
-  /** Resumen de 2–3 líneas. */
+  /** Descripción corta: qué hace la aplicación. */
   summary: string;
-  context: string;
-  challenge: string;
+  /** Qué problema resuelve, en lenguaje cotidiano. */
+  problem: string;
+  /** Cómo lo resuelve, en lenguaje cotidiano. */
   solution: string;
-  /** Cómo está construido por dentro. */
-  stages?: ProjectStage[];
+  /** Tres beneficios concretos, sin tecnicismos. */
+  highlights?: string[];
   /** Resultados medibles o entregables concretos. */
   metrics?: ProjectMetric[];
   gallery?: ProjectGalleryItem[];
