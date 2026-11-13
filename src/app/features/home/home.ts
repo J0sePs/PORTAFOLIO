@@ -18,8 +18,8 @@ export class Home {
   protected readonly profile = PROFILE;
   protected readonly year = new Date().getFullYear();
 
-  /** En la portada se muestran como máximo cuatro fichas; el archivo tiene el resto. */
-  protected readonly projects = PROJECTS.slice(0, 4);
+  /** En la portada se muestran como máximo seis fichas; el archivo tiene el resto. */
+  protected readonly projects = PROJECTS.slice(0, 6);
   protected readonly total = PROJECTS.length;
 
   /** Numeración consecutiva de las secciones que realmente se muestran. */
