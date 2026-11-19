@@ -19,71 +19,6 @@ import { Project } from './project.model';
  */
 export const PROJECTS: Project[] = [
   {
-    slug: 'themodularlab',
-    title: 'The Modular Lab',
-    subtitle: 'Laboratorios de Linux y cloud que se ejecutan en el navegador.',
-    year: 2026,
-    kind: 'desarrollo',
-    status: 'En producción',
-    featured: true,
-
-    cover: '/proyectos/themodularlab/cover.webp',
-    coverAlt: 'Portada de The Modular Lab con terminal interactiva en tema oscuro',
-
-    stack: ['astro', 'fastapi', 'python', 'postgresql'],
-
-    summary:
-      'Una plataforma para aprender Linux y cloud practicando con comandos reales en el navegador. El estudiante elige un laboratorio, escribe comandos y recibe al instante la corrección; su avance queda guardado en su cuenta.',
-
-    problem:
-      'Empezar con Linux suele ser frustrante: antes de aprender hay que instalar una máquina virtual, configurar la red y resolver errores del entorno. Muchos estudiantes se quedan en ese primer paso. Del otro lado, el docente tiene que revisar a mano si cada ejercicio se hizo bien.',
-
-    solution:
-      'La plataforma lleva ese primer contacto al navegador: no hay nada que instalar. El estudiante practica en un terminal que responde como uno real, recibe la corrección al instante y continúa donde se quedó desde cualquier equipo. Los laboratorios están ordenados por nivel y el plan gratuito abre los primeros.',
-
-    highlights: [
-      'Practica sin instalar nada',
-      'Corrección automática al instante',
-      'El avance se guarda en la cuenta',
-    ],
-
-    metrics: [
-      { value: '80+', label: 'laboratorios publicados' },
-      { value: '15', label: 'labs abiertos en el plan gratuito' },
-    ],
-
-    gallery: [
-      {
-        src: '/proyectos/themodularlab/detalle-1.webp',
-        alt: 'Tarjetas de características: terminal real, feedback instantáneo y progreso medible',
-        caption: 'Terminal, corrección y progreso en una sola vista',
-        ratio: '4 / 3',
-      },
-      {
-        src: '/proyectos/themodularlab/detalle-2.webp',
-        alt: 'Planes Gratis y Premium Pro con sus características y precios en soles',
-        caption: 'Planes y acceso a los laboratorios',
-        ratio: '4 / 3',
-      },
-      {
-        src: '/proyectos/themodularlab/cuenta.webp',
-        alt: 'Pantalla de registro para crear una cuenta gratuita en The Modular Lab',
-        caption: 'Creación de cuenta en un solo paso',
-        ratio: '4 / 3',
-      },
-      {
-        src: '/proyectos/themodularlab/acceso.webp',
-        alt: 'Pantalla de inicio de sesión con correo y acceso con Google',
-        caption: 'Acceso con correo o con Google',
-        ratio: '4 / 3',
-      },
-    ],
-
-    links: [{ label: 'Ver sistema', href: 'https://www.themodularlab.com/', kind: 'demo' }],
-
-    updated: '2026-11-09',
-  },
-  {
     slug: 'grafi-crash',
     title: 'Grafi Cr∆sh — Web de servicios y panel de gestión',
     subtitle: 'Web de publicidad, cotizador y panel para llevar pedidos, producción y caja.',
@@ -165,9 +100,79 @@ export const PROJECTS: Project[] = [
         href: 'https://grafi-crash.vercel.app/admin/login',
         kind: 'demo',
       },
+      {
+        label: 'Ver repositorio',
+        href: 'https://github.com/J0sePs/grafi-crash',
+        kind: 'repo',
+      },
     ],
 
     updated: '2026-11-19',
+  },
+  {
+    slug: 'themodularlab',
+    title: 'The Modular Lab',
+    subtitle: 'Laboratorios de Linux y cloud que se ejecutan en el navegador.',
+    year: 2026,
+    kind: 'desarrollo',
+    status: 'En producción',
+    featured: true,
+
+    cover: '/proyectos/themodularlab/cover.webp',
+    coverAlt: 'Portada de The Modular Lab con terminal interactiva en tema oscuro',
+
+    stack: ['astro', 'fastapi', 'python', 'postgresql'],
+
+    summary:
+      'Una plataforma para aprender Linux y cloud practicando con comandos reales en el navegador. El estudiante elige un laboratorio, escribe comandos y recibe al instante la corrección; su avance queda guardado en su cuenta.',
+
+    problem:
+      'Empezar con Linux suele ser frustrante: antes de aprender hay que instalar una máquina virtual, configurar la red y resolver errores del entorno. Muchos estudiantes se quedan en ese primer paso. Del otro lado, el docente tiene que revisar a mano si cada ejercicio se hizo bien.',
+
+    solution:
+      'La plataforma lleva ese primer contacto al navegador: no hay nada que instalar. El estudiante practica en un terminal que responde como uno real, recibe la corrección al instante y continúa donde se quedó desde cualquier equipo. Los laboratorios están ordenados por nivel y el plan gratuito abre los primeros.',
+
+    highlights: [
+      'Practica sin instalar nada',
+      'Corrección automática al instante',
+      'El avance se guarda en la cuenta',
+    ],
+
+    metrics: [
+      { value: '80+', label: 'laboratorios publicados' },
+      { value: '15', label: 'labs abiertos en el plan gratuito' },
+    ],
+
+    gallery: [
+      {
+        src: '/proyectos/themodularlab/detalle-1.webp',
+        alt: 'Tarjetas de características: terminal real, feedback instantáneo y progreso medible',
+        caption: 'Terminal, corrección y progreso en una sola vista',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/themodularlab/detalle-2.webp',
+        alt: 'Planes Gratis y Premium Pro con sus características y precios en soles',
+        caption: 'Planes y acceso a los laboratorios',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/themodularlab/cuenta.webp',
+        alt: 'Pantalla de registro para crear una cuenta gratuita en The Modular Lab',
+        caption: 'Creación de cuenta en un solo paso',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/themodularlab/acceso.webp',
+        alt: 'Pantalla de inicio de sesión con correo y acceso con Google',
+        caption: 'Acceso con correo o con Google',
+        ratio: '4 / 3',
+      },
+    ],
+
+    links: [{ label: 'Ver sistema', href: 'https://www.themodularlab.com/', kind: 'demo' }],
+
+    updated: '2026-11-09',
   },
   {
     slug: 'motoandes-peru',
