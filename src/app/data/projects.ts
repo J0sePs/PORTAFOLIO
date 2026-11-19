@@ -84,6 +84,92 @@ export const PROJECTS: Project[] = [
     updated: '2026-11-09',
   },
   {
+    slug: 'grafi-crash',
+    title: 'Grafi Cr∆sh — Web de servicios y panel de gestión',
+    subtitle: 'Web de publicidad, cotizador y panel para llevar pedidos, producción y caja.',
+    year: 2026,
+    kind: 'desarrollo',
+    status: 'Demo funcional',
+
+    cover: '/proyectos/grafi-crash/cover.webp',
+    coverAlt:
+      'Portada de Grafi Cr∆sh con el mensaje de publicidad y marketing digital y el acceso a la cotización',
+
+    stack: ['angular', 'typescript', 'sass', 'vercel'],
+
+    summary:
+      'La web de una empresa de publicidad de Tingo María y el panel con el que el negocio la opera. El cliente recorre los servicios, revisa trabajos, arma su cotización y la envía por WhatsApp; también consulta el avance de su pedido con el código del ticket. En el panel, el equipo crea tickets, controla la producción, cobra adelantos y saldos, cuadra caja y publica contenido sin tocar código.',
+
+    problem:
+      'Las cotizaciones, los pedidos y el estado de cada trabajo vivían en conversaciones de WhatsApp y cuadernos. El negocio no tenía una vista común de qué estaba en diseño, en producción o listo, ni de cuánto faltaba cobrar; y publicar un servicio o un trabajo nuevo dependía de un programador.',
+
+    solution:
+      'La web ordena la entrada: cada servicio tiene su página con precios referenciales, el cotizador arma el mensaje con lo que el cliente necesita y el seguimiento muestra el estado del pedido con el código y los últimos cuatro dígitos del celular. En el panel, cada pedido se vuelve un ticket con su código, medidas, adelanto y saldo; avanza por estados, registra pagos y recibe pruebas de diseño para que el cliente las apruebe. El contenido de la web se publica u oculta desde el mismo panel.',
+
+    highlights: [
+      'El cliente cotiza y sigue su pedido sin llamar',
+      'Cada trabajo se sigue de recibido a entregado',
+      'El contenido de la web se edita sin programar',
+    ],
+
+    metrics: [
+      { value: '12', label: 'servicios publicados' },
+      { value: '12', label: 'trabajos en el portafolio' },
+      { value: '3', label: 'roles con permisos propios' },
+      { value: '84', label: 'pruebas automatizadas' },
+    ],
+
+    gallery: [
+      {
+        src: '/proyectos/grafi-crash/detalle-1.webp',
+        alt: 'Catálogo de servicios de publicidad con filtros por categoría y precios referenciales en soles',
+        caption: 'Servicios con filtros, precios desde y ficha de cada uno',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/grafi-crash/detalle-2.webp',
+        alt: 'Formulario Consulta tu pedido con código de ticket y últimos cuatro dígitos del celular',
+        caption: 'El cliente consulta su pedido con el código del ticket',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/grafi-crash/detalle-3.webp',
+        alt: 'Formulario de cotización con servicio, cantidad, material, instalación y datos de contacto',
+        caption: 'Cotizador que arma el mensaje de WhatsApp',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/grafi-crash/detalle-4.webp',
+        alt: 'Panel de inicio con tickets del día, atrasados, saldos por cobrar y cobrado del mes',
+        caption: 'Panel con los indicadores del negocio',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/grafi-crash/detalle-5.webp',
+        alt: 'Tablero de tickets en columnas desde recibido hasta listo para recoger, con el saldo de cada pedido',
+        caption: 'Tablero de pedidos por estado de producción',
+        ratio: '4 / 3',
+      },
+      {
+        src: '/proyectos/grafi-crash/detalle-6.webp',
+        alt: 'Detalle del ticket GC-000023 con estados, pagos, prueba de diseño aprobada y código QR',
+        caption: 'Ticket con pagos, prueba de diseño y QR de consulta',
+        ratio: '4 / 3',
+      },
+    ],
+
+    links: [
+      { label: 'Ver sitio', href: 'https://grafi-crash.vercel.app/', kind: 'demo' },
+      {
+        label: 'Abrir panel',
+        href: 'https://grafi-crash.vercel.app/admin/login',
+        kind: 'demo',
+      },
+    ],
+
+    updated: '2026-11-19',
+  },
+  {
     slug: 'motoandes-peru',
     title: 'MotoAndes Perú — Tienda y panel de gestión',
     subtitle: 'Web de venta de motos, repuestos y taller con panel de administración para tres sedes.',
@@ -413,8 +499,8 @@ export const PROJECTS: Project[] = [
     ],
 
     metrics: [
-      { value: '9', label: 'platos en la carta' },
-      { value: '6', label: 'categorías del menú' },
+      { value: '38', label: 'platos en la carta' },
+      { value: '10', label: 'categorías del menú' },
       { value: '5', label: 'zonas de delivery' },
     ],
 
@@ -453,7 +539,7 @@ export const PROJECTS: Project[] = [
 
     links: [{ label: 'Ver sitio', href: 'https://milagritos-demo-mvp.vercel.app/', kind: 'demo' }],
 
-    updated: '2026-11-12',
+    updated: '2026-11-13',
   },
   {
     slug: 'pisco-rain-extractor',
