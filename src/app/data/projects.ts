@@ -177,7 +177,8 @@ export const PROJECTS: Project[] = [
   {
     slug: 'motoandes-peru',
     title: 'MotoAndes Perú — Tienda y panel de gestión',
-    subtitle: 'Web de venta de motos, repuestos y taller con panel de administración para tres sedes.',
+    subtitle:
+      'Web de venta de motos, repuestos y taller con panel de administración para tres sedes.',
     year: 2026,
     kind: 'desarrollo',
     status: 'Demo funcional',
@@ -281,7 +282,8 @@ export const PROJECTS: Project[] = [
   {
     slug: 'sabores-del-huallaga',
     title: 'Sabores del Huallaga — Web, carta QR y panel de operación',
-    subtitle: 'Restaurante amazónico con carta digital, pedidos y un panel para salón, cocina y caja.',
+    subtitle:
+      'Restaurante amazónico con carta digital, pedidos y un panel para salón, cocina y caja.',
     year: 2026,
     kind: 'desarrollo',
     status: 'Demo funcional',
@@ -394,13 +396,15 @@ export const PROJECTS: Project[] = [
   {
     slug: 'hotel-mirador',
     title: 'Hotel Mirador del Pacífico — PMS + Web de reservas',
-    subtitle: 'Sistema hotelero para el mercado peruano: web de reservas y panel de administración.',
+    subtitle:
+      'Sistema hotelero para el mercado peruano: web de reservas y panel de administración.',
     year: 2026,
     kind: 'desarrollo',
     status: 'Demo funcional',
 
     cover: '/proyectos/hotel-mirador/cover.jpg',
-    coverAlt: 'Hotel Mirador del Pacífico: buscador de disponibilidad y tarjetas de habitación en la web pública',
+    coverAlt:
+      'Hotel Mirador del Pacífico: buscador de disponibilidad y tarjetas de habitación en la web pública',
 
     stack: ['angular', 'primeng', 'typescript', 'chartjs', 'vercel'],
 
@@ -471,7 +475,13 @@ export const PROJECTS: Project[] = [
       },
     ],
 
-    links: [{ label: 'Ver sistema', href: 'https://hotel-mirador-del-pacifico.vercel.app/', kind: 'demo' }],
+    links: [
+      {
+        label: 'Ver sistema',
+        href: 'https://hotel-mirador-del-pacifico.vercel.app/',
+        kind: 'demo',
+      },
+    ],
 
     updated: '2026-11-12',
   },
@@ -645,6 +655,191 @@ export const PROJECTS: Project[] = [
     ],
 
     updated: '2026-11-11',
+  },
+  {
+    slug: 'pan-de-casa',
+    title: 'Pan de Casa — Web de panadería con pedidos por WhatsApp',
+    subtitle:
+      'Catálogo, carrito y configurador de tortas para una panadería familiar de Tingo María.',
+    year: 2026,
+    kind: 'desarrollo',
+    status: 'Demo funcional',
+
+    cover: '/proyectos/pan-de-casa/cover.jpg',
+    coverAlt:
+      'Portada de Pan de Casa con el mensaje de panadería familiar, el horario de pan caliente y el acceso al pedido',
+
+    stack: ['angular', 'typescript', 'sass', 'vitest', 'vercel'],
+
+    summary:
+      'La web de una panadería y pastelería familiar de Tingo María: el catálogo completo con precios, el pedido que se arma solo y se envía por WhatsApp, el configurador de tortas con precio al instante y la cotización de bocaditos para eventos. Sin backend ni panel: la familia cambia precios, horarios y campañas desde archivos de datos, y el sitio se publica ya renderizado.',
+
+    problem:
+      'Las consultas de precios, horarios, zonas de reparto y encargos llegaban por WhatsApp todo el día, y cada respuesta se escribía a mano. Los pedidos se anotaban en el chat, sin un detalle claro de cantidades ni total, y una torta por encargo podía tomar varias conversaciones solo para acordar el precio.',
+
+    solution:
+      'El cliente recorre el catálogo, agrega productos y arma su pedido con recojo o delivery, fecha y hora; el mensaje llega a WhatsApp con el detalle y el total ya calculados. Para una torta elige ocasión, tamaño, bizcocho, relleno, cobertura, decoración y mensaje en nueve pasos, y ve el precio referencial y el adelanto mientras decide. Los eventos se cotizan por paquete. Todo el contenido vive en archivos de datos y cada página se publica con sus metadatos, sitemap y datos estructurados.',
+
+    highlights: [
+      'El pedido llega por WhatsApp con detalle y total',
+      'La torta se cotiza sola en nueve pasos',
+      'Precios y horarios se cambian sin programar',
+    ],
+
+    metrics: [
+      { value: '54', label: 'productos en el catálogo' },
+      { value: '6', label: 'categorías con filtros' },
+      { value: '9', label: 'pasos del configurador de tortas' },
+      { value: '3', label: 'horneadas al día' },
+    ],
+
+    gallery: [
+      {
+        src: '/proyectos/pan-de-casa/detalle-1.jpg',
+        alt: 'Catálogo de productos con filtros por categoría, buscador y precios por unidad en soles',
+        caption: 'Catálogo con filtros, buscador y precios',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/pan-de-casa/detalle-2.jpg',
+        alt: 'Grilla de productos con etiquetas de más vendido, ingredientes y botón para agregar al pedido',
+        caption: 'Cada producto se agrega al pedido en un toque',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/pan-de-casa/detalle-3.jpg',
+        alt: 'Pedido armado con cinco productos, recojo en tienda, fecha, hora, nombre y forma de pago',
+        caption: 'Pedido armado, entrega y forma de pago',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/pan-de-casa/detalle-4.jpg',
+        alt: 'Paso dos del configurador de tortas con tamaños por porciones y precio desde en soles',
+        caption: 'Tamaños con porciones y precio al instante',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/pan-de-casa/detalle-5.jpg',
+        alt: 'Resumen de la torta con ocasión, tamaño, bizcocho, relleno, mensaje, entrega y precio referencial',
+        caption: 'Resumen del encargo con adelanto del 50 %',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/pan-de-casa/detalle-6.jpg',
+        alt: 'Paquetes de bocaditos para cumpleaños, colegios y empresas con precios desde',
+        caption: 'Paquetes de bocaditos para eventos',
+        ratio: '16 / 9',
+      },
+    ],
+
+    links: [
+      { label: 'Ver sitio', href: 'https://pan-de-casa-alpha.vercel.app/', kind: 'demo' },
+      {
+        label: 'Ver repositorio',
+        href: 'https://github.com/J0sePs/pan-de-casa',
+        kind: 'repo',
+      },
+    ],
+
+    updated: '2026-11-19',
+  },
+  {
+    slug: 'sonrisa-sana',
+    title: 'Sonrisa Sana — Web de citas y panel clínico dental',
+    subtitle:
+      'Reservas en línea y panel para agenda, pacientes, odontograma, presupuestos y caja de un consultorio dental.',
+    year: 2026,
+    kind: 'desarrollo',
+    status: 'Demo funcional',
+
+    cover: '/proyectos/sonrisa-sana/cover.jpg',
+    coverAlt:
+      'Portada de Sonrisa Sana con el mensaje de atención dental y el acceso para reservar cita',
+
+    stack: ['angular', 'primeng', 'typescript', 'sass', 'chartjs', 'vitest', 'vercel'],
+
+    summary:
+      'La web pública de un consultorio dental y el panel con el que el equipo lo atiende. El paciente revisa tratamientos y precios, reserva su cita con los horarios reales y la consulta, reprograma o cancela con su código; el consultorio trabaja la agenda del día por profesional o por sillón, la ficha con odontograma, evoluciones y recetas, los presupuestos con firma en pantalla, los pagos en cuotas, la caja y los reportes. Los datos de la demo son ficticios y se guardan en el navegador.',
+
+    problem:
+      'El consultorio coordinaba todo en un cuaderno de citas: las reservas se tomaban por teléfono, los horarios se cruzaban, las confirmaciones se hacían una por una y la historia clínica vivía en papel. Cobrar un tratamiento en cuotas y saber cuánto faltaba cobrar dependía de apuntes aparte.',
+
+    solution:
+      'La web muestra los tratamientos con precios referenciales y deja que el paciente elija día y hora entre los cupos libres; la cita entra al panel con un código CIT-AAAA-NNNN y recepción la confirma o envía el recordatorio por WhatsApp. En la ficha, el odontólogo registra hallazgos en el odontograma, los pasa al presupuesto, el paciente acepta y firma en pantalla, y cada cuota se cobra desde caja. La agenda, los pagos y los reportes salen del mismo registro, y cada rol ve solo lo que le corresponde.',
+
+    highlights: [
+      'El paciente reserva solo con horarios reales',
+      'Odontograma, presupuesto y firma en la misma ficha',
+      'Cada rol entra solo a lo suyo',
+    ],
+
+    metrics: [
+      { value: '100', label: 'pruebas automatizadas' },
+      { value: '32', label: 'piezas en el odontograma' },
+      { value: '3', label: 'roles con permisos propios' },
+      { value: '30 días', label: 'plazo del Libro de Reclamaciones' },
+    ],
+
+    gallery: [
+      {
+        src: '/proyectos/sonrisa-sana/detalle-1.jpg',
+        alt: 'Catálogo de tratamientos dentales con precios referenciales, duración y filtros por especialidad',
+        caption: 'Tratamientos y precios, ordenados por especialidad',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/sonrisa-sana/detalle-2.jpg',
+        alt: 'Paso tres de la reserva de cita con días disponibles y horarios de mañana y tarde',
+        caption: 'Reserva en línea con cupos reales',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/sonrisa-sana/detalle-3.jpg',
+        alt: 'Pantalla Hoy del panel con atenciones, ingresos, sala de espera y citas por profesional',
+        caption: 'Pantalla Hoy con la operación del día',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/sonrisa-sana/detalle-4.jpg',
+        alt: 'Agenda del día por profesional con estados de cada cita, alertas médicas y bloqueos de horario',
+        caption: 'Agenda por profesional o por sillón',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/sonrisa-sana/detalle-5.jpg',
+        alt: 'Reportes del consultorio con atenciones, ingresos, ocupación de agenda y tratamientos más frecuentes',
+        caption: 'Reportes de atención, ingresos y ocupación',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/sonrisa-sana/detalle-6.jpg',
+        alt: 'Odontograma de una paciente con hallazgos por pieza, alergias y enfermedades registradas',
+        caption: 'Odontograma con hallazgos por pieza',
+        ratio: '16 / 9',
+      },
+      {
+        src: '/proyectos/sonrisa-sana/detalle-7.jpg',
+        alt: 'Presupuesto por fases con piezas, sesiones, descuento, total en soles y opción de aceptar con firma',
+        caption: 'Presupuesto por fases y aceptación con firma',
+        ratio: '16 / 9',
+      },
+    ],
+
+    links: [
+      { label: 'Ver sitio', href: 'https://sonrisa-sana-ten.vercel.app/', kind: 'demo' },
+      {
+        label: 'Abrir panel',
+        href: 'https://sonrisa-sana-ten.vercel.app/admin/login',
+        kind: 'demo',
+      },
+      {
+        label: 'Ver repositorio',
+        href: 'https://github.com/J0sePs/sonrisa-sana',
+        kind: 'repo',
+      },
+    ],
+
+    updated: '2026-11-19',
   },
 ];
 
